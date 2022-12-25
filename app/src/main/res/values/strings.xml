@@ -7,4 +7,11 @@
     <string name="frs">FRS</string>
     <string name="exit">Exit</string>
     <string name="informatics_apps">Informatics Apps</string>
+    <string name="please_login_first">Please login first</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="login">Login</string>
+    <string name="sign_up">Sign Up</string>
 </resources>
