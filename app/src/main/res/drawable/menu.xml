@@ -9,10 +9,4 @@
         android:topRightRadius="20dp">
     </corners>
     <stroke android:width="4dp" android:color="#FFFFFF" />
-    <gradient
-        android:startColor="#E8E8E8"
-        android:endColor="#FFFFFF"
-        android:gradientRadius="100"
-        android:type="radial"
-        />
 </shape>
