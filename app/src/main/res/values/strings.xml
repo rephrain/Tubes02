@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Tubes2</string>
+    <string name="title">Hello</string>
+    <string name="name">Rephrain</string>
+    <string name="announcement">Announcement</string>
+    <string name="appointment">Appointment</string>
+    <string name="frs">FRS</string>
+    <string name="exit">Exit</string>
+    <string name="informatics_apps">Informatics Apps</string>
 </resources>
