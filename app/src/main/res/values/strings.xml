@@ -14,4 +14,23 @@
     <string name="welcome_back">Welcome Back</string>
     <string name="login">Login</string>
     <string name="sign_up">Sign Up</string>
+
+    <string name="title_pertemuan">Pertemuan</string>
+
+    <string name="title_add_pertemuan">Tambah Pertemuan</string>
+    <string name="judul_pertemuan">Judul</string>
+    <string name="jadwal_pertemuan">Jadwal</string>
+    <string name="partisipan_pertemuan">Partisipan</string>
+    <string name="btn_jadwal_dosen">Lihat Jadwal Dosen</string>
+    <string name="deskripsi_pertemuan">Deskripsi</string>
+    <string name="btn_simpan_pertemuan">Simpan</string>
+
+    <string name="title_jadwal_dosen">Jadwal Dosen</string>
+    <string name="tv_nama_dosen">Nama Dosen</string>
+    <string name="btn_jadwal_kembali">Kembali</string>
+    <string name="tv_senin">Senin</string>
+    <string name="tv_selasa">Selasa</string>
+    <string name="tv_rabu">Rabu</string>
+    <string name="tv_kamis">Kamis</string>
+    <string name="tv_jumat">Jumat</string>
 </resources>
