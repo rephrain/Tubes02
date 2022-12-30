@@ -6,7 +6,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentResultListener;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
 import com.example.tubes2.databinding.ActivityMainBinding;
 
@@ -37,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     public void changePage(int page){
         FragmentTransaction ft = this.fragmentManager.beginTransaction();
         if (page == 1){
@@ -48,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
             if (this.fragmentH.isAdded()){
                 ft.hide(this.fragmentH);
             }
+            closeKeyboard();
         } else if (page == 2){
             if (this.fragmentH.isAdded()){
                 ft.show(this.fragmentH);
@@ -57,7 +62,16 @@ public class MainActivity extends AppCompatActivity {
             if (this.fragmentL.isAdded()){
                 ft.hide(this.fragmentL);
             }
+            closeKeyboard();
         }
         ft.commit();
+    }
+
+    private void closeKeyboard(){
+        View view = this.getCurrentFocus();
+        if (view != null){
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(),0);
+        }
     }
 }
