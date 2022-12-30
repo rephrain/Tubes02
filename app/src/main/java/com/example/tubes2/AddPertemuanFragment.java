@@ -1,5 +1,7 @@
 package com.example.tubes2;
 
+import static android.content.Context.INPUT_METHOD_SERVICE;
+
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.graphics.Color;
@@ -7,6 +9,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
 
@@ -24,6 +27,12 @@ public class AddPertemuanFragment extends Fragment implements View.OnClickListen
     private PertemuanAddBinding binding;
     DatePickerDialog.OnDateSetListener setListener;
 
+    String judul;
+    String tanggalPertemuan;
+    String waktuPertemuan;
+    String partisipan;
+    String deskripsi;
+
     @Override
     public void onClick(View view) {
         if(view.getId() == binding.btnTanggalPertemuan.getId()){
@@ -37,7 +46,6 @@ public class AddPertemuanFragment extends Fragment implements View.OnClickListen
                 public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
                     month = month + 1;
                     String date = day+"/"+month+"/"+year;
-                    Log.d("debughaha2","masuk2");
                     binding.btnTanggalPertemuan.setText(date);
                 }
             }, year, month, day);
@@ -56,50 +64,49 @@ public class AddPertemuanFragment extends Fragment implements View.OnClickListen
             timePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             timePickerDialog.show();
         }
-//        else if(view == binding.jadwalDosen){
-//            FragmentManager fm = getParentFragmentManager();
-//            FragmentTransaction ft = fm.beginTransaction();
-//
-//        }
-//        else if(view.getId() == binding.btnSimpan.getId()){
-//            Bundle result = new Bundle();
-//            Bundle newPertemuan = new Bundle();
-//            judul = binding.etJudulPertemuan.getText().toString();
-//            isiDokter = binding.isiDokter.getText().toString();
-//            isiSpesialis = binding.isiSpesialis.getText().toString();
-//            keluhan = binding.etKeluhanPasien.getText().toString();
-//            tanggalPertemuan = binding.btnTanggalPertemuan.getText().toString();
-//            waktuPertemuan = binding.etWaktuPertemuan.getText().toString();
-//            if(namaPasien.trim().equals("")){
-//                binding.etNamaPasien.setError("Nama Pasien Tidak Boleh Kosong");
-//            }else if(isiDokter.trim().equals("")){
-//                binding.isiDokter.setError("Nama Dokter Tidak Boleh Kosong");
-//            }
-//            else if(isiSpesialis.trim().equals("")){
-//                binding.isiSpesialis.setError("Spesialis Dokter Tidak Boleh Kosong");
-//            }
-//            else if(keluhan.trim().equals("")){
-//                binding.etKeluhanPasien.setError("Keluhan Tidak Boleh Kosong");
-//            }
-//            else if(tanggalPertemuan.trim().equals("")){
-//                binding.btnTanggalPertemuan.setError("Tanggal Pertemuan Tidak Boleh Kosong");
-//            }
-//            else if(waktuPertemuan.trim().equals("")){
-//                binding.etWaktuPertemuan.setError("Waktu Pertemuan Tidak Boleh Kosong");
-//            }
-//
-//            else{
-//                hideKeyboard(view);
-//                newPertemuan.putString("namaPasien",namaPasien);
-//                newPertemuan.putString("isiDokter",isiDokter);
-//                newPertemuan.putString("isiSpesialis",isiSpesialis);
-//                newPertemuan.putString("keluhan",keluhan);
-//                newPertemuan.putString("tanggalPertemuan",tanggalPertemuan);
-//                newPertemuan.putString("waktuPertemuan",waktuPertemuan);
-//                result.putString("page", "pertemuan");
-//                this.getParentFragmentManager().setFragmentResult("addToListPertemuan",newPertemuan);
-//                this.getParentFragmentManager().setFragmentResult("changePage",result);
-//            }
-//        }
+        else if(view == binding.jadwalDosen){
+            FragmentManager fm = getParentFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+
+        }
+        else if(view.getId() == binding.btnSimpan.getId()){
+            Bundle result = new Bundle();
+            Bundle newPertemuan = new Bundle();
+            judul = binding.etJudulPertemuan.getText().toString();
+            tanggalPertemuan = binding.btnTanggalPertemuan.getText().toString();
+            waktuPertemuan = binding.etWaktuPertemuan.getText().toString();
+            partisipan = binding.etPartisipanPertemuan.getText().toString();
+            deskripsi = binding.etDeskripsiPertemuan.getText().toString();
+            if(judul.trim().equals("")){
+                binding.etJudulPertemuan.setError("Nama Pasien Tidak Boleh Kosong");
+            }else if(tanggalPertemuan.trim().equals("")){
+                binding.btnTanggalPertemuan.setError("Nama Dokter Tidak Boleh Kosong");
+            }
+            else if(waktuPertemuan.trim().equals("")){
+                binding.etWaktuPertemuan.setError("Spesialis Dokter Tidak Boleh Kosong");
+            }
+            else if(partisipan.trim().equals("")){
+                binding.etPartisipanPertemuan.setError("Keluhan Tidak Boleh Kosong");
+            }
+            else if(deskripsi.trim().equals("")){
+                binding.etDeskripsiPertemuan.setError("Tanggal Pertemuan Tidak Boleh Kosong");
+            }
+
+            else{
+                hideKeyboard(view);
+                newPertemuan.putString("judul",judul);
+                newPertemuan.putString("tanggalPertemuan",tanggalPertemuan);
+                newPertemuan.putString("waktuPertemuan",waktuPertemuan);
+                newPertemuan.putString("partisipan",partisipan);
+                newPertemuan.putString("deskripsi",deskripsi);
+                result.putInt("page",3);
+                this.getParentFragmentManager().setFragmentResult("addToListPertemuan",newPertemuan);
+                this.getParentFragmentManager().setFragmentResult("changePage",result);
+            }
+        }
+    }
+    private void hideKeyboard(View v) {
+        InputMethodManager inputMethodManager = (InputMethodManager)getActivity().getSystemService(INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(v.getApplicationWindowToken(),0);
     }
 }

@@ -2,22 +2,20 @@ package com.example.tubes2;
 
 public class Pertemuan {
     Integer id;
-    String namaDosen;
-    String jadwalSenin;
-    String jadwalSelasa;
-    String jadwalRabu;
-    String jadwalKamis;
-    String jadwalJumat;
+    String judul;
+    String tanggalPertemuan;
+    String waktuPertemuan;
+    String partisipan;
+    String deskripsi;
     private boolean isFav;
 
-    public Pertemuan(Integer id, String namaDosen, String jadwalSenin,String jadwalSelasa, String jadwalRabu, String jadwalKamis, String jadwalJumat){
+    public Pertemuan(Integer id, String judul, String tanggalPertemuan,String waktuPertemuan, String partisipan, String deskripsi){
         this.id = id;
-        this.namaDosen = namaDosen;
-        this.jadwalSenin = jadwalSenin;
-        this.jadwalSelasa = jadwalSelasa;
-        this.jadwalRabu = jadwalRabu;
-        this.jadwalKamis = jadwalKamis;
-        this.jadwalJumat = jadwalJumat;
+        this.judul = judul;
+        this.tanggalPertemuan = tanggalPertemuan;
+        this.waktuPertemuan = waktuPertemuan;
+        this.partisipan = partisipan;
+        this.deskripsi = deskripsi;
         this.isFav = false;
     }
 
@@ -25,28 +23,24 @@ public class Pertemuan {
         return id;
     }
 
-    public String getNamaDosen() {
-        return namaDosen;
+    public String getJudul() {
+        return judul;
     }
 
-    public String getJadwalSenin() {
-        return jadwalSenin;
+    public String getWaktuPertemuan() {
+        return waktuPertemuan;
     }
 
-    public String getJadwalSelasa() {
-        return jadwalSelasa;
+    public String getTanggalPertemuan() {
+        return tanggalPertemuan;
     }
 
-    public String getJadwalRabu() {
-        return jadwalRabu;
+    public String getPartisipan() {
+        return partisipan;
     }
 
-    public String getJadwalKamis() {
-        return jadwalKamis;
-    }
-
-    public String getJadwalJumat() {
-        return jadwalJumat;
+    public String getDeskripsi() {
+        return deskripsi;
     }
 
     public void toggleFavorite(){
