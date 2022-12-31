@@ -57,7 +57,7 @@ public class PertemuanFragment extends Fragment implements View.OnClickListener,
     @Override
     public void onClick(View view) {
         Bundle result = new Bundle();
-        result.putInt("page", 3);
+        result.putString("page", "addPertemuan");
         this.getParentFragmentManager().setFragmentResult("changePage", result);
     }
 

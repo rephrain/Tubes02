@@ -8,7 +8,9 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
@@ -33,6 +35,31 @@ public class AddPertemuanFragment extends Fragment implements View.OnClickListen
     String partisipan;
     String deskripsi;
 
+    MainPresenter presenter;
+
+    public AddPertemuanFragment(){
+
+    }
+
+    public static AddPertemuanFragment newInstance(String title, MainPresenter presenter){
+        AddPertemuanFragment fragment = new AddPertemuanFragment();
+        fragment.presenter = presenter;
+        Bundle args = new Bundle();
+        args.putString("title", title);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        this.binding = PertemuanAddBinding.inflate(inflater);
+        View view = binding.getRoot();
+        binding.btnSimpan.setOnClickListener(this::onClick);
+        binding.btnTanggalPertemuan.setOnClickListener(this::onClick);
+        binding.etWaktuPertemuan.setOnClickListener(this::onClick);
+        binding.jadwalDosen.setOnClickListener(this::onClick);
+        return view;
+    }
     @Override
     public void onClick(View view) {
         if(view.getId() == binding.btnTanggalPertemuan.getId()){
@@ -78,18 +105,18 @@ public class AddPertemuanFragment extends Fragment implements View.OnClickListen
             partisipan = binding.etPartisipanPertemuan.getText().toString();
             deskripsi = binding.etDeskripsiPertemuan.getText().toString();
             if(judul.trim().equals("")){
-                binding.etJudulPertemuan.setError("Nama Pasien Tidak Boleh Kosong");
+                binding.etJudulPertemuan.setError("Judul Tidak Boleh Kosong");
             }else if(tanggalPertemuan.trim().equals("")){
-                binding.btnTanggalPertemuan.setError("Nama Dokter Tidak Boleh Kosong");
+                binding.btnTanggalPertemuan.setError("Tanggal Pertemuan Tidak Boleh Kosong");
             }
             else if(waktuPertemuan.trim().equals("")){
-                binding.etWaktuPertemuan.setError("Spesialis Dokter Tidak Boleh Kosong");
+                binding.etWaktuPertemuan.setError("Waktu Pertemuan Tidak Boleh Kosong");
             }
             else if(partisipan.trim().equals("")){
-                binding.etPartisipanPertemuan.setError("Keluhan Tidak Boleh Kosong");
+                binding.etPartisipanPertemuan.setError("Partisipan Tidak Boleh Kosong");
             }
             else if(deskripsi.trim().equals("")){
-                binding.etDeskripsiPertemuan.setError("Tanggal Pertemuan Tidak Boleh Kosong");
+                binding.etDeskripsiPertemuan.setError("Deskripsi Pertemuan Tidak Boleh Kosong");
             }
 
             else{
@@ -99,7 +126,7 @@ public class AddPertemuanFragment extends Fragment implements View.OnClickListen
                 newPertemuan.putString("waktuPertemuan",waktuPertemuan);
                 newPertemuan.putString("partisipan",partisipan);
                 newPertemuan.putString("deskripsi",deskripsi);
-                result.putInt("page",3);
+                result.putString("page","pertemuan");
                 this.getParentFragmentManager().setFragmentResult("addToListPertemuan",newPertemuan);
                 this.getParentFragmentManager().setFragmentResult("changePage",result);
             }

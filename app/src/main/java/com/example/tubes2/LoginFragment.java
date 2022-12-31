@@ -44,7 +44,7 @@ public class LoginFragment extends Fragment {
                 }
                 else{
                     hideKeyboard(view);
-                    result.putInt("page",2);
+                    result.putString("page","home");
                     getParentFragmentManager().setFragmentResult("changePage",result);
                 }
 

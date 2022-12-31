@@ -13,12 +13,16 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.tubes2.databinding.FragmentHomeBinding;
+import com.example.tubes2.databinding.PertemuanAddBinding;
+
 import java.util.ArrayList;
 
 import kotlin.contracts.CallsInPlace;
 
 public class HomeFragment extends Fragment {
-    ImageView exit;
+    private FragmentHomeBinding binding;
     private DrawerLayout drawerLayout;
     ImageView btMenu;
     private RecyclerView recyclerView;
@@ -37,13 +41,13 @@ public class HomeFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View view = inflater.inflate(R.layout.fragment_home,container,false);
+        this.binding = FragmentHomeBinding.inflate(inflater);
+        View view = binding.getRoot();
         Bundle result = new Bundle();
-        result.putInt("page",1);
+        result.putString("page","login");
         getParentFragmentManager().setFragmentResult("changePage",result);
 
-        this.exit = view.findViewById(R.id.btn_exit);
-        exit.setOnClickListener(new View.OnClickListener() {
+        binding.btnExit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -62,6 +66,22 @@ public class HomeFragment extends Fragment {
                     }
                 });
                 builder.show();            }
+        });
+
+        binding.menuAnnouncement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                result.putString("page","pengumuman");
+                getParentFragmentManager().setFragmentResult("changePage",result);
+            }
+        });
+
+        binding.menuAppointment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                result.putString("page","pertemuan");
+                getParentFragmentManager().setFragmentResult("changePage",result);
+            }
         });
 
         drawerLayout = view.findViewById(R.id.drawer_layout);
