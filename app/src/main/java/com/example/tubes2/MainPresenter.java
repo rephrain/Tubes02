@@ -5,9 +5,11 @@ import java.util.ArrayList;
 public class MainPresenter {
     protected ArrayList<Pertemuan> pertemuans;
     protected InterfacePertemuan iPertemuan;
+    protected InterfaceFRS iFRS;
 
-    public MainPresenter(InterfacePertemuan iPertemuan){
+    public MainPresenter(InterfacePertemuan iPertemuan, InterfaceFRS iFRS){
         this.iPertemuan = iPertemuan;
+        this.iFRS = iFRS;
         this.pertemuans = new ArrayList<>();
     }
 
