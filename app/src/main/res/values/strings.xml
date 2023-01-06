@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Tubes2</string>
     <string name="title">Hello</string>
-    <string name="name">Rephrain</string>
+    <string name="name">Rephrain Archaimeric</string>
     <string name="announcement">Announcement</string>
     <string name="appointment">Appointment</string>
     <string name="frs">FRS</string>
@@ -33,4 +33,6 @@
     <string name="tv_rabu">Rabu</string>
     <string name="tv_kamis">Kamis</string>
     <string name="tv_jumat">Jumat</string>
+    <string name="welcome">Welcome:</string>
+    <string name="student">Student</string>
 </resources>
