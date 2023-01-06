@@ -1,8 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/bunga">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <androidx.drawerlayout.widget.DrawerLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -10,7 +9,8 @@
         android:fitsSystemWindows="true">
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@drawable/bunga">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -158,11 +158,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/informatics_apps"
+                    android:text="Menu"
                     android:textStyle="bold"
                     android:textSize="24sp"
                     android:textColor="@color/black"
-                    android:layout_gravity="center">
+                    android:layout_gravity="left"
+                    android:layout_marginStart="30dp">
                 </TextView>
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -180,7 +181,7 @@
                             android:layout_margin="20dp"
                             android:src="@drawable/ic_baseline_announcement_24"
                             android:background="@drawable/menu"
-                            android:elevation="20dp"
+                            android:elevation="10dp"
                             android:clickable="true"
                             android:focusable="true"
                             android:foreground="?attr/selectableItemBackground">
@@ -202,7 +203,7 @@
                             android:layout_margin="20dp"
                             android:src="@drawable/ic_baseline_fact_check_24"
                             android:background="@drawable/menu"
-                            android:elevation="20dp"
+                            android:elevation="10dp"
                             android:clickable="true"
                             android:focusable="true"
                             android:foreground="?attr/selectableItemBackground">
@@ -228,7 +229,7 @@
                             android:layout_margin="20dp"
                             android:src="@drawable/ic_baseline_people_outline_24"
                             android:background="@drawable/menu"
-                            android:elevation="20dp"
+                            android:elevation="10dp"
                             android:clickable="true"
                             android:focusable="true"
                             android:foreground="?attr/selectableItemBackground">
@@ -250,7 +251,7 @@
                             android:layout_margin="20dp"
                             android:src="@drawable/ic_baseline_exit_to_app_24"
                             android:background="@drawable/menu"
-                            android:elevation="20dp"
+                            android:elevation="10dp"
                             android:clickable="true"
                             android:focusable="true"
                             android:foreground="?attr/selectableItemBackground">
@@ -265,10 +266,20 @@
                         </TextView>
                     </LinearLayout>
                 </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pengumuman"
+                    android:textStyle="bold"
+                    android:textSize="24sp"
+                    android:textColor="@color/black"
+                    android:layout_gravity="left"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="30dp">
+                </TextView>
                 <HorizontalScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp">
+                    android:layout_height="wrap_content">
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
