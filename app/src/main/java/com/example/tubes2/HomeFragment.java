@@ -85,7 +85,7 @@ public class HomeFragment extends Fragment {
         });
 
         drawerLayout = view.findViewById(R.id.drawer_layout);
-        btMenu = view.findViewById(R.id.bt_menu);
+//        btMenu = view.findViewById(R.id.bt_menu);
         recyclerView = view.findViewById(R.id.recycle_view);
 
         arrayList.clear();
@@ -98,12 +98,12 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
 
-        btMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                drawerLayout.openDrawer(GravityCompat.END);
-            }
-        });
+//        btMenu.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                drawerLayout.openDrawer(GravityCompat.END);
+//            }
+//        });
         return view;
     }
 
