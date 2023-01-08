@@ -48,19 +48,19 @@ public class DrawerAdapter extends RecyclerView.Adapter<DrawerAdapter.ViewHolder
                     case 2:
                         break;
                     case 3:
-                        AppCompatActivity activity = (AppCompatActivity) view.getContext();
-                        LoginFragment login = LoginFragment.newInstance("Fragment Login");
-                        HomeFragment home = HomeFragment.newInstance("Fragment Home");
-                        FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction();
-                        if (login.isAdded()){
-                            ft.show(login);
-                        } else{
-                            ft.replace(R.id.fragment_container,login).addToBackStack(null);
-                        }
-                        if (home.isAdded()){
-                            ft.remove(home);
-                        }
-                        ft.commit();
+//                        AppCompatActivity activity = (AppCompatActivity) view.getContext();
+//                        LoginFragment login = LoginFragment.newInstance("Fragment Login", );
+//                        HomeFragment home = HomeFragment.newInstance("Fragment Home");
+//                        FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction();
+//                        if (login.isAdded()){
+//                            ft.show(login);
+//                        } else{
+//                            ft.replace(R.id.fragment_container,login).addToBackStack(null);
+//                        }
+//                        if (home.isAdded()){
+//                            ft.remove(home);
+//                        }
+//                        ft.commit();
                         break;
                 }
             }
