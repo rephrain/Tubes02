@@ -1,11 +1,14 @@
-package com.example.tubes2;
+package com.example.tubes2.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import com.example.tubes2.MainPresenter;
 import com.example.tubes2.databinding.ItemListPertemuanBinding;
+import com.example.tubes2.fragments.PertemuanFragment;
+import com.example.tubes2.model.Pertemuan;
 
 import java.util.ArrayList;
 import java.util.List;

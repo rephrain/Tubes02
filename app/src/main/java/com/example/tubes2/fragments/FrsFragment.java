@@ -1,4 +1,4 @@
-package com.example.tubes2;
+package com.example.tubes2.fragments;
 
 import android.view.View;
 

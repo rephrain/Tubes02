@@ -1,4 +1,4 @@
-package com.example.tubes2;
+package com.example.tubes2.fragments;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -14,12 +14,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tubes2.adapter.DrawerAdapter;
+import com.example.tubes2.R;
 import com.example.tubes2.databinding.FragmentHomeBinding;
-import com.example.tubes2.databinding.PertemuanAddBinding;
 
 import java.util.ArrayList;
-
-import kotlin.contracts.CallsInPlace;
 
 public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;

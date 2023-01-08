@@ -1,4 +1,4 @@
-package com.example.tubes2;
+package com.example.tubes2.fragments;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;
 
@@ -10,10 +10,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.tubes2.MainPresenter;
+import com.example.tubes2.R;
 import com.example.tubes2.databinding.FragmentLoginBinding;
 
 public class LoginFragment extends Fragment {
@@ -62,7 +63,7 @@ public class LoginFragment extends Fragment {
                     if (motionEvent.getRawX() >= binding.password.getRight()-binding.password.getCompoundDrawables()[right].getBounds().width()){
                         int select = binding.password.getSelectionEnd();
                         if (passwordVisible){
-                            binding.password.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_visibility_off_24,0);
+                            binding.password.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0, R.drawable.ic_baseline_visibility_off_24,0);
                             binding.password.setTransformationMethod(PasswordTransformationMethod.getInstance());
                             passwordVisible = false;
                         } else{

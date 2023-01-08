@@ -12,10 +12,15 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 import com.example.tubes2.databinding.ActivityMainBinding;
+import com.example.tubes2.fragments.AddPertemuanFragment;
+import com.example.tubes2.fragments.HomeFragment;
+import com.example.tubes2.fragments.LoginFragment;
+import com.example.tubes2.fragments.PertemuanFragment;
+import com.example.tubes2.model.Pertemuan;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements InterfaceFRS, InterfacePertemuan{
+public class MainActivity extends AppCompatActivity implements IMainActivity{
     ActivityMainBinding binding;
     private FragmentManager fragmentManager;
     LoginFragment fragmentL;

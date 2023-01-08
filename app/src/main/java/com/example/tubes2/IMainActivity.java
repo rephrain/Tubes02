@@ -1,5 +1,7 @@
 package com.example.tubes2;
 
+import com.example.tubes2.model.Pertemuan;
+
 import java.util.ArrayList;
 
 public interface IMainActivity {

@@ -1,4 +1,4 @@
-package com.example.tubes2;
+package com.example.tubes2.fragments;
 
 import android.database.Cursor;
 import android.os.Bundle;
@@ -10,11 +10,16 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
 
+import com.example.tubes2.DataBaseHelper;
+import com.example.tubes2.InterfacePertemuan;
+import com.example.tubes2.MainPresenter;
+import com.example.tubes2.model.Pertemuan;
+import com.example.tubes2.adapter.PertemuanAdapter;
 import com.example.tubes2.databinding.FragmentPertemuanBinding;
 
 import java.util.ArrayList;
 
-public class PertemuanFragment extends Fragment implements View.OnClickListener, InterfacePertemuan{
+public class PertemuanFragment extends Fragment implements View.OnClickListener, InterfacePertemuan {
     private FragmentPertemuanBinding binding;
     private PertemuanAdapter adapter;
     private MainPresenter presenter;
