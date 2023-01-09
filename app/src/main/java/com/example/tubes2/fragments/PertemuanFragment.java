@@ -44,18 +44,23 @@ public class PertemuanFragment extends Fragment implements View.OnClickListener,
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
                 Integer id = result.getInt("id");
-                String judul= result.getString("namaPasien");
+                String judul= result.getString("judul");
                 String tanggalPertemuan = result.getString("tanggalPertemuan");
                 String waktuPertemuan = result.getString("waktuPertemuan");
                 String partisipan = result.getString("partisipan");
+                String jadwalPartisipan = result.getString("jadwalPartisipan");
                 String deskripsi = result.getString("deskripsi");
-                presenter.addToListPertemuan(id, judul, tanggalPertemuan, waktuPertemuan, partisipan, deskripsi);
+                Pertemuan pertemuan = new Pertemuan(id,judul,tanggalPertemuan,waktuPertemuan,partisipan, jadwalPartisipan, deskripsi);
+                adapter.add(pertemuan);
+//                presenter.addToListPertemuan(id, judul, tanggalPertemuan, waktuPertemuan, partisipan, deskripsi);
                 db.insertPertemuan(judul, tanggalPertemuan, waktuPertemuan, partisipan, deskripsi);
             }
         });
         binding.btnAdd.setOnClickListener(this::onClick);
         while(data.moveToNext()){
-            presenter.addToListPertemuan(data.getInt(0),data.getString(1), data.getString(2), data.getString(3),data.getString(4),data.getString(5));
+//            presenter.addToListPertemuan(data.getInt(0),data.getString(1), data.getString(2), data.getString(3),data.getString(4),data.getString(5));
+            Pertemuan pertemuan = new Pertemuan(data.getInt(0),data.getString(1), data.getString(2), data.getString(3),data.getString(4),data.getString(5),data.getString(6));
+            adapter.add(pertemuan);
         }
         return view;
     }

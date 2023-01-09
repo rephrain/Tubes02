@@ -12,7 +12,9 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 import com.example.tubes2.databinding.ActivityMainBinding;
+import com.example.tubes2.fragments.AddPengumumanFragment;
 import com.example.tubes2.fragments.AddPertemuanFragment;
+import com.example.tubes2.fragments.AnnouncementFragment;
 import com.example.tubes2.fragments.HomeFragment;
 import com.example.tubes2.fragments.LoginFragment;
 import com.example.tubes2.fragments.PertemuanFragment;
@@ -32,6 +34,8 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
     private PertemuanFragment fragmentP;
     private AddPertemuanFragment fragmentAP;
     private MainPresenter presenter;
+    private AnnouncementFragment fragmentAnnouncement;
+    private AddPengumumanFragment fragmentAPengumuman;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +49,8 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
         fragmentH = HomeFragment.newInstance("Fragment Home");
         fragmentP = PertemuanFragment.newInstance(presenter);
         fragmentAP = AddPertemuanFragment.newInstance("Fragment Add Pertemuan", presenter);
+        fragmentAnnouncement = AnnouncementFragment.newInstance(presenter);
+        fragmentAPengumuman = AddPengumumanFragment.newInstance("Fragment Add Pengumuman", presenter);
 
         fragmentManager = this.getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

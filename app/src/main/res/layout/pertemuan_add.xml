@@ -13,78 +13,94 @@
             android:layout_width="wrap_content"
             android:text="@string/title_add_pertemuan"
             android:textSize="30sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/judul_pertemuan"
             android:layout_marginTop="5dp"
-            android:textSize="15sp"/>
+            android:textSize="15sp"
+            android:layout_margin="10dp"/>
         <EditText
             android:id="@+id/et_judul_pertemuan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:importantForAutofill="no"
-            android:inputType="text"/>
+            android:inputType="text"
+            android:layout_margin="10dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/jadwal_pertemuan"
             android:layout_marginTop="5dp"
-            android:textSize="15sp"/>
+            android:textSize="15sp"
+            android:layout_margin="10dp"/>
         <Button
             android:id="@+id/btn_tanggal_pertemuan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="15sp"
+            android:hint="Tanggal Pertemuan"
             android:textColor="@color/black"
-            style="?android:spinnerStyle">
+            style="?android:spinnerStyle"
+            android:layout_margin="10dp">
         </Button>
         <Button
             android:id="@+id/et_waktu_pertemuan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="15sp"
+            android:hint="Waktu Pertemuan"
             android:textColor="@color/black"
-            style="?android:spinnerStyle">
+            style="?android:spinnerStyle"
+            android:layout_margin="10dp">
         </Button>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/partisipan_pertemuan"
             android:layout_marginTop="5dp"
-            android:textSize="15sp"/>
-        <EditText
+            android:textSize="15sp"
+            android:layout_margin="10dp"/>
+        <Button
             android:id="@+id/et_partisipan_pertemuan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:importantForAutofill="no"
-            android:inputType="text"/>
+            android:textSize="15sp"
+            android:hint="Partisipan Pertemuan"
+            android:textColor="@color/black"
+            style="?android:spinnerStyle"
+            android:layout_margin="10dp">
+        </Button>
         <Button
-            android:id="@+id/jadwal_dosen"
+            android:id="@+id/et_jadwal_partisipan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:text="@string/btn_jadwal_dosen"
-            android:backgroundTint="@color/grey"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/black"/>
+            android:textSize="15sp"
+            android:hint="Jadwal Partisipan"
+            android:textColor="@color/black"
+            style="?android:spinnerStyle"
+            android:layout_margin="10dp">
+        </Button>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/deskripsi_pertemuan"
             android:layout_marginTop="5dp"
-            android:textSize="15sp"/>
+            android:textSize="15sp"
+            android:layout_margin="10dp"/>
         <EditText
             android:id="@+id/et_deskripsi_pertemuan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:importantForAutofill="no"
-            android:inputType="text"/>
+            android:inputType="text"
+            android:layout_margin="10dp"/>
         <Button
             android:id="@+id/btn_simpan"
             android:layout_width="match_parent"
@@ -92,7 +108,7 @@
             android:text="@string/btn_simpan_pertemuan"
             android:backgroundTint="@color/grey"
             android:layout_marginTop="20dp"
-            android:textColor="@color/black"/>
-
+            android:textColor="@color/black"
+            android:layout_margin="10dp"/>
     </LinearLayout>
 </ScrollView>
