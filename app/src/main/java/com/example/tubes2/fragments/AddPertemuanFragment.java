@@ -115,9 +115,9 @@ public class AddPertemuanFragment extends Fragment implements View.OnClickListen
             else if(waktuPertemuan.trim().equals("")){
                 binding.etWaktuPertemuan.setError("Waktu Pertemuan Tidak Boleh Kosong");
             }
-            else if(partisipan.trim().equals("")){
-                binding.etPartisipanPertemuan.setError("Partisipan Tidak Boleh Kosong");
-            }
+//            else if(partisipan.trim().equals("")){
+//                binding.etPartisipanPertemuan.setError("Partisipan Tidak Boleh Kosong");
+//            }
             else if(deskripsi.trim().equals("")){
                 binding.etDeskripsiPertemuan.setError("Deskripsi Pertemuan Tidak Boleh Kosong");
             }
