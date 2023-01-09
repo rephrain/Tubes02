@@ -1,6 +1,7 @@
 package com.example.tubes2;
 
 import android.content.Context;
+import android.os.Bundle;
 
 import com.example.tubes2.model.Pertemuan;
 import com.example.tubes2.model.User;
@@ -13,6 +14,8 @@ public class MainPresenter {
     protected ArrayList<Pertemuan> pertemuans;
     protected IMainActivity iMainActivity;
     protected Context context;
+    private User user;
+    private String page;
 
     public MainPresenter(IMainActivity iMainActivity, Context context){
         this.iMainActivity = iMainActivity;
@@ -27,6 +30,11 @@ public class MainPresenter {
 
     public void callAuthenticateTask(String email, String password, String role) throws JSONException {
         this.iMainActivity.loginUser(email, password, role);
+    }
+
+    public void loginAuthenticated(User user){
+        this.user = user;
+        this.iMainActivity.changePage("home");
     }
 
     public void delItemListPertemuan(Pertemuan pertemuan){
