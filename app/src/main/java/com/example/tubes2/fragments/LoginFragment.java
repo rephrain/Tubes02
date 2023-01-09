@@ -16,11 +16,17 @@ import androidx.fragment.app.Fragment;
 import com.example.tubes2.MainPresenter;
 import com.example.tubes2.R;
 import com.example.tubes2.databinding.FragmentLoginBinding;
+import com.example.tubes2.model.User;
 
-public class LoginFragment extends Fragment {
+import org.json.JSONException;
+
+import java.util.Locale;
+
+public class LoginFragment extends Fragment implements View.OnClickListener {
     private FragmentLoginBinding binding;
-    String email;
-    String password;
+    private String email;
+    private String password;
+    private String role;
     boolean passwordVisible;
     private MainPresenter presenter;
 
@@ -33,27 +39,9 @@ public class LoginFragment extends Fragment {
         this.binding = FragmentLoginBinding.inflate(inflater);
         View view = binding.getRoot();
 
-        binding.btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Bundle result = new Bundle();
-                email = binding.email.getText().toString();
-                password = binding.password.getText().toString();
+        binding.btnLogin.setOnClickListener(this);
 
-                if(email.trim().equals("")){
-                    binding.email.setError("Email Tidak Boleh Kosong");
-                }
-                else if(password.trim().equals("")){
-                    binding.password.setError("Password Tidak Boleh Kosong");
-                }
-                else{
-                    hideKeyboard(view);
-                    result.putString("page","home");
-                    getParentFragmentManager().setFragmentResult("changePage",result);
-                }
 
-            }
-        });
 
         binding.password.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -81,12 +69,45 @@ public class LoginFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onClick(View view) {
+        if(view.getId() == binding.btnLogin.getId()){
+            //                Bundle result = new Bundle();
+            this.email = binding.email.getText().toString();
+            this.password = binding.password.getText().toString();
+            this.role = binding.role.getText().toString();
+
+            if(email.trim().equals("")){
+                binding.email.setError("Email Tidak Boleh Kosong");
+            }
+            else if(password.trim().equals("")){
+                binding.password.setError("Password Tidak Boleh Kosong");
+            }
+            else if(role.toLowerCase().trim().equals("")){
+                binding.role.setError("Role Tidak Boleh Kosong");
+            }
+            else{
+                hideKeyboard(view);
+                try {
+                    this.presenter.callAuthenticateTask(this.email, this.password, this.role);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+//                    result.putString("page","home");
+//                    getParentFragmentManager().setFragmentResult("changePage",result);
+            }
+        }
+    }
+
     public static LoginFragment newInstance(String title, MainPresenter presenter){
         LoginFragment fragmentL = new LoginFragment();
         Bundle args = new Bundle();
         args.putString("title", title);
         fragmentL.setArguments(args);
         fragmentL.presenter = presenter;
+        fragmentL.email = new String();
+        fragmentL.password = new String();
+        fragmentL.role = new String();
         return fragmentL;
     }
 

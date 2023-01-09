@@ -19,6 +19,10 @@ import com.example.tubes2.fragments.HomeFragment;
 import com.example.tubes2.fragments.LoginFragment;
 import com.example.tubes2.fragments.PertemuanFragment;
 import com.example.tubes2.model.Pertemuan;
+import com.example.tubes2.model.User;
+import com.example.tubes2.task.PostAuthenticateTask;
+
+import org.json.JSONException;
 
 import java.util.ArrayList;
 
@@ -38,6 +42,8 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
         super.onCreate(savedInstanceState);
         this.binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(this.binding.getRoot());
+
+        this.presenter = new MainPresenter(this, this);
 
         fragmentL = LoginFragment.newInstance("Fragment Login", this.presenter);
         fragmentH = HomeFragment.newInstance("Fragment Home");
@@ -133,6 +139,17 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
             InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(),0);
         }
+    }
+
+    @Override
+    public void loginUser(String email, String password, String role) throws JSONException {
+        PostAuthenticateTask task = new PostAuthenticateTask(this.presenter, this);
+        task.execute(email, password, role);
+    }
+
+    @Override
+    public void loginAuthenticated() {
+
     }
 
     @Override
