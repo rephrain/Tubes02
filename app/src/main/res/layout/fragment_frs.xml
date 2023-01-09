@@ -9,20 +9,31 @@
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="Prasyarat"
-            android:textSize="30dp"
+            android:text="@string/prasyarat"
+            android:textSize="30sp"
             android:textStyle="bold"
-            android:paddingLeft="15dp"
+            android:paddingStart="15dp"
             android:paddingTop="15dp"
             android:id="@+id/titleListPrasyarat"/>
         <ListView
             android:layout_margin="10dp"
-            android:dividerHeight="15px"
+            android:dividerHeight="15dp"
             android:id="@+id/lv_listPrasyarat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/titleListPrasyarat"
-            android:layout_marginBottom="100dp"></ListView>
+            android:layout_marginBottom="100dp">
+        </ListView>
+        <ImageView
+            android:id="@+id/add_semester"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:src="@android:drawable/ic_menu_add"
+            android:layout_marginBottom="50dp"
+            android:layout_marginEnd="20dp">
+        </ImageView>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -35,7 +46,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:src="@drawable/ic_baseline_home_24"
-                android:layout_alignParentBottom="true"
                 android:layout_gravity="center"
                 android:layout_weight="1">
             </ImageView>
