@@ -17,8 +17,8 @@
             android:paddingTop="15dp"
             android:id="@+id/titleListPrasyarat"/>
         <ListView
-            android:background="@color/white"
             android:layout_margin="10dp"
+            android:background="@color/white"
             android:dividerHeight="15dp"
             android:id="@+id/lv_listPrasyarat"
             android:layout_width="match_parent"

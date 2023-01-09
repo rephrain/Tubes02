@@ -229,7 +229,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
     @Override
     public void notifyLoginFailed() {
         Toast.makeText(this,
-                "Masukkan salah", Toast.LENGTH_LONG).show();
+                "Masukkan salah!", Toast.LENGTH_LONG).show();
     }
 
     @Override

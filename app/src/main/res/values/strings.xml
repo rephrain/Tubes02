@@ -8,11 +8,13 @@
     <string name="exit">Exit</string>
     <string name="informatics_apps">Informatics Apps</string>
     <string name="please_login_first">Please login first!</string>
-    <string name="email">Email</string>
-    <string name="password">Password</string>
+    <string name="email">Email : </string>
+    <string name="email_hint">user@unpar.ac.id</string>
+    <string name="password">Password : </string>
+    <string name="password_hint">***********</string>
     <string name="forget_password">Forget Password?</string>
-    <string name="welcome_back">Welcome Back</string>
-    <string name="login">Login</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="login">LOGIN</string>
     <string name="sign_up">Sign Up</string>
 
     <string name="title_pertemuan">Pertemuan</string>
@@ -39,8 +41,9 @@
     <string name="tv_rabu">Rabu</string>
     <string name="tv_kamis">Kamis</string>
     <string name="tv_jumat">Jumat</string>
-    <string name="welcome">Welcome:</string>
+    <string name="welcome">Welcome : </string>
     <string name="student">Student</string>
-    <string name="role">Role</string>
+    <string name="role">Role : </string>
+    <string name="role_hint">admin</string>
     <string name="prasyarat">Prasyarat</string>
 </resources>
