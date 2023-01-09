@@ -6,27 +6,45 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import com.example.tubes2.MainPresenter;
+import com.example.tubes2.databinding.ItemListPengumumanBinding;
 import com.example.tubes2.databinding.ItemListPertemuanBinding;
+import com.example.tubes2.fragments.AnnouncementFragment;
 import com.example.tubes2.fragments.PertemuanFragment;
 import com.example.tubes2.model.Pengumuman;
 import com.example.tubes2.model.Pertemuan;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PengumumanAdapter extends BaseAdapter {
     private List<Pengumuman> listPengumuman;
     private LayoutInflater inflater;
-    private ItemListPertemuanBinding itemListPertemuanBinding;
-    private PertemuanFragment fragmentPertemuan;
+    private ItemListPengumumanBinding binding;
+    private AnnouncementFragment fragment;
     private MainPresenter presenter;
+
+    public PengumumanAdapter(AnnouncementFragment fragment, LayoutInflater inflater, MainPresenter presenter){
+        this.fragment=fragment;
+        this.listPengumuman=new ArrayList<>();
+        this.inflater = inflater;
+        this.presenter = presenter;
+    }
+    public void add(Pengumuman pengumuman){
+        this.listPengumuman.add(pengumuman);
+        notifyDataSetChanged();
+    }
+
+    public void setListPengumuman(List<Pengumuman> listPengumuman){
+        this.listPengumuman = listPengumuman;
+    }
     @Override
     public int getCount() {
-        return 0;
+        return listPengumuman.size();
     }
 
     @Override
-    public Object getItem(int i) {
-        return null;
+    public Pengumuman getItem(int i) {
+        return listPengumuman.get(i);
     }
 
     @Override
@@ -36,6 +54,33 @@ public class PengumumanAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return null;
+        ViewHolder viewHolder;
+        if (view == null){
+            binding = ItemListPengumumanBinding.inflate(this.inflater);
+            view = binding.getRoot();
+            viewHolder = new ViewHolder(binding);
+            view.setTag(viewHolder);
+        }
+        else {
+            viewHolder = (ViewHolder) view.getTag();
+        }
+        viewHolder.updateView(this.getItem(i));
+        return view;
+    }
+
+    private class ViewHolder{
+        ItemListPengumumanBinding binding;
+        protected Pengumuman pengumuman;
+
+        public ViewHolder (ItemListPengumumanBinding binding){
+            this.binding = binding;
+        }
+
+        public void updateView(Pengumuman pengumuman){
+            this.pengumuman = pengumuman;
+            this.binding.tvJudulPengumuman.setText(this.pengumuman.getJudul());
+            this.binding.tvTemaPengumuman.setText(this.pengumuman.getTema());
+            this.binding.tvTanggalPertemuan.setText(this.pengumuman.getTanggal());
+        }
     }
 }

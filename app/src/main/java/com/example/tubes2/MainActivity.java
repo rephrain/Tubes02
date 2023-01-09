@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
     HomeFragment fragmentH;
     PertemuanFragment fragmentP;
     AddPertemuanFragment fragmentAP;
-    AnnouncementFragment fragmentA;
+    AnnouncementFragment fragmentAnnouncement;
     AddPengumumanFragment fragmentAPengumuman;
     MainPresenter presenter;
 
@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
         fragmentH = HomeFragment.newInstance("Fragment Home");
         fragmentP = PertemuanFragment.newInstance(presenter);
         fragmentAP = AddPertemuanFragment.newInstance("Fragment Add Pertemuan", presenter);
+        fragmentAnnouncement = AnnouncementFragment.newInstance(presenter);
+        fragmentAPengumuman = AddPengumumanFragment.newInstance("Fragment Add Pengumuman", presenter);
 
         fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

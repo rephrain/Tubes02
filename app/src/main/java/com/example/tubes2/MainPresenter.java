@@ -20,8 +20,8 @@ public class MainPresenter {
         this.context = context;
     }
 
-    public void addToListPertemuan(Integer id, String judul, String tanggalPertemuan,String waktuPertemuan, String partisipan, String deskripsi){
-        pertemuans.add(new Pertemuan(id, judul, tanggalPertemuan, waktuPertemuan, partisipan, deskripsi));
+    public void addToListPertemuan(Integer id, String judul, String tanggalPertemuan,String waktuPertemuan, String partisipan, String jadwalPartisipan,String deskripsi){
+        pertemuans.add(new Pertemuan(id, judul, tanggalPertemuan, waktuPertemuan, partisipan, jadwalPartisipan, deskripsi));
         this.iMainActivity.updateListPertemuan(pertemuans);
     }
 
