@@ -84,6 +84,12 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
             if (this.fragmentAP.isAdded()){
                 ft.hide(this.fragmentAP);
             }
+            if (this.fragmentAnnouncement.isAdded()){
+                ft.hide(this.fragmentAnnouncement);
+            }
+            if (this.fragmentAPengumuman.isAdded()){
+                ft.hide(this.fragmentAPengumuman);
+            }
             closeKeyboard();
         } else if (page.equals("home")){
             if (this.fragmentH.isAdded()){
@@ -99,6 +105,12 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
             }
             if (this.fragmentAP.isAdded()){
                 ft.hide(this.fragmentAP);
+            }
+            if (this.fragmentAnnouncement.isAdded()){
+                ft.hide(this.fragmentAnnouncement);
+            }
+            if (this.fragmentAPengumuman.isAdded()){
+                ft.hide(this.fragmentAPengumuman);
             }
             closeKeyboard();
         } else if (page.equals("pertemuan")){
@@ -116,6 +128,12 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
             if (this.fragmentAP.isAdded()){
                 ft.hide(this.fragmentAP);
             }
+            if (this.fragmentAnnouncement.isAdded()){
+                ft.hide(this.fragmentAnnouncement);
+            }
+            if (this.fragmentAPengumuman.isAdded()){
+                ft.hide(this.fragmentAPengumuman);
+            }
             closeKeyboard();
         }else if (page.equals("addPertemuan")){
             if (this.fragmentAP.isAdded()){
@@ -131,6 +149,56 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
             }
             if (this.fragmentP.isAdded()){
                 ft.hide(this.fragmentP);
+            }
+            if (this.fragmentAnnouncement.isAdded()){
+                ft.hide(this.fragmentAnnouncement);
+            }
+            if (this.fragmentAPengumuman.isAdded()){
+                ft.hide(this.fragmentAPengumuman);
+            }
+            closeKeyboard();
+        }else if (page.equals("pengumuman")){
+            if (this.fragmentAnnouncement.isAdded()){
+                ft.show(this.fragmentAnnouncement);
+            } else{
+                ft.add(R.id.fragment_container,this.fragmentAnnouncement).addToBackStack(null);
+            }
+            if (this.fragmentP.isAdded()){
+                ft.hide(this.fragmentP);
+            }
+            if (this.fragmentL.isAdded()){
+                ft.hide(this.fragmentL);
+            }
+            if (this.fragmentH.isAdded()){
+                ft.hide(this.fragmentH);
+            }
+            if (this.fragmentAP.isAdded()){
+                ft.hide(this.fragmentAP);
+            }
+            if (this.fragmentAPengumuman.isAdded()){
+                ft.hide(this.fragmentAPengumuman);
+            }
+            closeKeyboard();
+        }else if (page.equals("addPengumuman")){
+            if (this.fragmentAPengumuman.isAdded()){
+                ft.show(this.fragmentAPengumuman);
+            } else{
+                ft.add(R.id.fragment_container,this.fragmentAPengumuman).addToBackStack(null);
+            }
+            if (this.fragmentL.isAdded()){
+                ft.hide(this.fragmentL);
+            }
+            if (this.fragmentH.isAdded()){
+                ft.hide(this.fragmentH);
+            }
+            if (this.fragmentP.isAdded()){
+                ft.hide(this.fragmentP);
+            }
+            if (this.fragmentAP.isAdded()){
+                ft.hide(this.fragmentAP);
+            }
+            if (this.fragmentAnnouncement.isAdded()){
+                ft.hide(this.fragmentAnnouncement);
             }
             closeKeyboard();
         }
