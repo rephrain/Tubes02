@@ -63,7 +63,7 @@ public class AnnouncementFragment extends Fragment implements View.OnClickListen
             result.putString("page", "home");
             this.getParentFragmentManager().setFragmentResult("changePage", result);
         }else if(view.getId() == binding.btnAdd.getId()) {
-            result.putString("page", "home");
+            result.putString("page", "addPengumuman");
             this.getParentFragmentManager().setFragmentResult("changePage", result);
         }
     }
