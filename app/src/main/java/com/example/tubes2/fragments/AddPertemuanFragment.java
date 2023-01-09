@@ -14,8 +14,10 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentResultListener;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.tubes2.MainPresenter;
@@ -31,6 +33,7 @@ public class AddPertemuanFragment extends Fragment implements View.OnClickListen
     String tanggalPertemuan;
     String waktuPertemuan;
     String partisipan;
+    String addPartisipan;
     String deskripsi;
 
     MainPresenter presenter;
@@ -55,7 +58,8 @@ public class AddPertemuanFragment extends Fragment implements View.OnClickListen
         binding.btnSimpan.setOnClickListener(this::onClick);
         binding.btnTanggalPertemuan.setOnClickListener(this::onClick);
         binding.etWaktuPertemuan.setOnClickListener(this::onClick);
-        binding.jadwalDosen.setOnClickListener(this::onClick);
+        binding.etPartisipanPertemuan.setOnClickListener(this::onClick);
+        binding.etJadwalPartisipan.setOnClickListener(this::onClick);
         return view;
     }
     @Override
@@ -89,9 +93,10 @@ public class AddPertemuanFragment extends Fragment implements View.OnClickListen
             timePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             timePickerDialog.show();
         }
-        else if(view == binding.jadwalDosen){
-            FragmentManager fm = getParentFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
+        else if(view == binding.etPartisipanPertemuan){
+
+        }
+        else if(view == binding.etJadwalPartisipan){
 
         }
         else if(view.getId() == binding.btnSimpan.getId()){
