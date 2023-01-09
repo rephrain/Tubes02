@@ -27,6 +27,11 @@ public class PertemuanAdapter extends BaseAdapter {
         this.presenter = presenter;
     }
 
+    public void add(Pertemuan pertemuan){
+        this.listPertemuan.add(pertemuan);
+        notifyDataSetChanged();
+    }
+
     public void setListPertemuan(List<Pertemuan> listPertemuan){
         this.listPertemuan = listPertemuan;
     }
