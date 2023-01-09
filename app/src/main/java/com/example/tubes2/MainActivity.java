@@ -13,6 +13,7 @@ import android.view.inputmethod.InputMethodManager;
 
 import com.example.tubes2.databinding.ActivityMainBinding;
 import com.example.tubes2.fragments.AddPertemuanFragment;
+import com.example.tubes2.fragments.AnnouncementFragment;
 import com.example.tubes2.fragments.HomeFragment;
 import com.example.tubes2.fragments.LoginFragment;
 import com.example.tubes2.fragments.PertemuanFragment;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
     HomeFragment fragmentH;
     PertemuanFragment fragmentP;
     AddPertemuanFragment fragmentAP;
+    AnnouncementFragment fragmentA;
     MainPresenter presenter;
 
     @Override
