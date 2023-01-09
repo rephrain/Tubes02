@@ -39,7 +39,7 @@ public class AnnouncementFragment extends Fragment implements View.OnClickListen
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         this.binding = FragmentPengumumanBinding.inflate(inflater);
         this.adapter = new PengumumanAdapter(this, inflater, this.presenter);
-        this.binding.lv.setAdapter(adapter);
+        this.binding.lvListPrasyarat.setAdapter(adapter);
         DataBaseHelper db = new DataBaseHelper(getContext());
         Cursor data = db.lihatDataPertemuan();
         View view = binding.getRoot();
