@@ -2,7 +2,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/bg">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,7 +18,7 @@
         android:layout_height="wrap_content"
         android:text="@string/please_login_first"
         android:layout_marginStart="30dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="20dp"
         android:textSize="16sp">
     </TextView>
     <EditText
@@ -37,6 +38,14 @@
         android:inputType="textPassword"
         android:drawableEnd="@drawable/ic_baseline_visibility_off_24"
         android:longClickable="false">
+    </EditText>
+    <EditText
+        android:id="@+id/role"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:hint="@string/role"
+        android:inputType="textEmailAddress">
     </EditText>
     <TextView
         android:layout_width="wrap_content"
