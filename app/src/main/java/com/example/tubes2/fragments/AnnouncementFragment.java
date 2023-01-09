@@ -43,12 +43,29 @@ public class AnnouncementFragment extends Fragment implements View.OnClickListen
         DataBaseHelper db = new DataBaseHelper(getContext());
         Cursor data = db.lihatDataPertemuan();
         View view = binding.getRoot();
+        binding.menuAnnouncement.setOnClickListener(this::onClick);
+        binding.menuAppointment.setOnClickListener(this::onClick);
+        binding.menuHome.setOnClickListener(this::onClick);
+        binding.btnAdd.setOnClickListener(this::onClick);
         return view;
     }
 
     @Override
     public void onClick(View view) {
-
+        Bundle result = new Bundle();
+        if(view.getId() == binding.menuAnnouncement.getId()) {
+            result.putString("page", "pengumuman");
+            this.getParentFragmentManager().setFragmentResult("changePage", result);
+        }else if(view.getId() == binding.menuAppointment.getId()) {
+            result.putString("page", "pertemuan");
+            this.getParentFragmentManager().setFragmentResult("changePage", result);
+        }else if(view.getId() == binding.menuHome.getId()) {
+            result.putString("page", "home");
+            this.getParentFragmentManager().setFragmentResult("changePage", result);
+        }else if(view.getId() == binding.btnAdd.getId()) {
+            result.putString("page", "home");
+            this.getParentFragmentManager().setFragmentResult("changePage", result);
+        }
     }
 
     @Override

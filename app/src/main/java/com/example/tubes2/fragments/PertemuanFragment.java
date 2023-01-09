@@ -57,6 +57,9 @@ public class PertemuanFragment extends Fragment implements View.OnClickListener,
             }
         });
         binding.btnAdd.setOnClickListener(this::onClick);
+        binding.menuAnnouncement.setOnClickListener(this::onClick);
+        binding.menuAppointment.setOnClickListener(this::onClick);
+        binding.menuHome.setOnClickListener(this::onClick);
         while(data.moveToNext()){
 //            presenter.addToListPertemuan(data.getInt(0),data.getString(1), data.getString(2), data.getString(3),data.getString(4),data.getString(5));
             Pertemuan pertemuan = new Pertemuan(data.getInt(0),data.getString(1), data.getString(2), data.getString(3),data.getString(4),data.getString(5),data.getString(6));
@@ -67,8 +70,20 @@ public class PertemuanFragment extends Fragment implements View.OnClickListener,
     @Override
     public void onClick(View view) {
         Bundle result = new Bundle();
-        result.putString("page", "addPertemuan");
-        this.getParentFragmentManager().setFragmentResult("changePage", result);
+        if(view.getId() == binding.btnAdd.getId()) {
+            result.putString("page", "addPertemuan");
+            this.getParentFragmentManager().setFragmentResult("changePage", result);
+        }else if(view.getId() == binding.menuAnnouncement.getId()) {
+            result.putString("page", "pengumuman");
+            this.getParentFragmentManager().setFragmentResult("changePage", result);
+        }else if(view.getId() == binding.menuAppointment.getId()) {
+            result.putString("page", "pertemuan");
+            this.getParentFragmentManager().setFragmentResult("changePage", result);
+        }else if(view.getId() == binding.menuHome.getId()) {
+            result.putString("page", "home");
+            this.getParentFragmentManager().setFragmentResult("changePage", result);
+        }
+
     }
 
     @Override
