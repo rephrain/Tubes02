@@ -12,8 +12,15 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 import com.example.tubes2.databinding.ActivityMainBinding;
+import com.example.tubes2.fragments.AddPertemuanFragment;
+import com.example.tubes2.fragments.HomeFragment;
+import com.example.tubes2.fragments.LoginFragment;
+import com.example.tubes2.fragments.PertemuanFragment;
+import com.example.tubes2.model.Pertemuan;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity implements IMainActivity{
     ActivityMainBinding binding;
     private FragmentManager fragmentManager;
     LoginFragment fragmentL;
@@ -26,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(R.layout.activity_main);
+        setContentView(this.binding.getRoot());
 
-        fragmentL = LoginFragment.newInstance("Fragment Login");
+        fragmentL = LoginFragment.newInstance("Fragment Login", this.presenter);
         fragmentH = HomeFragment.newInstance("Fragment Home");
         fragmentP = PertemuanFragment.newInstance(presenter);
         fragmentAP = AddPertemuanFragment.newInstance("Fragment Add Pertemuan", presenter);
@@ -122,5 +129,20 @@ public class MainActivity extends AppCompatActivity {
             InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(),0);
         }
+    }
+
+    @Override
+    public void executeGetSemesterDilalui() {
+
+    }
+
+    @Override
+    public void updateListPertemuan(ArrayList<Pertemuan> pertemuans) {
+
+    }
+
+    @Override
+    public void resetAddForm() {
+
     }
 }
