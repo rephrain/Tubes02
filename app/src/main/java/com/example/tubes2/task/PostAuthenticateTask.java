@@ -22,6 +22,7 @@ public class PostAuthenticateTask {
     private MainPresenter presenter;
     private Context context;
     private Gson gson;
+    private User user;
 
     public PostAuthenticateTask(MainPresenter presenter, Context context){
         this.presenter = presenter;
@@ -30,7 +31,7 @@ public class PostAuthenticateTask {
     }
 
     public void execute(String email, String password, String role) throws JSONException {
-        User user = new User(email, password, role);
+        this.user = new User(email, password, role);
         JSONObject json = new JSONObject(this.gson.toJson(user));
         Log.d("json", json.toString());
         this.callVolley(json);
@@ -41,7 +42,14 @@ public class PostAuthenticateTask {
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, this.BASE_URL, json, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Log.d("result", response.toString());
+                String token = null;
+                try {
+                    token = response.getString("token");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                Log.d("result", token);
+                processResult(response.toString());
             }
         }, new Response.ErrorListener() {
             @Override
@@ -52,7 +60,8 @@ public class PostAuthenticateTask {
         mRequestQueue.add(request);
     }
 
-    public void processResult(String json){
-
+    public void processResult(String token){
+        this.user.setToken(token);
+        this.presenter.loginAuthenticated(this.user);
     }
 }

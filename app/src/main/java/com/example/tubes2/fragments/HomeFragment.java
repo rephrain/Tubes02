@@ -43,8 +43,8 @@ public class HomeFragment extends Fragment {
         this.binding = FragmentHomeBinding.inflate(inflater);
         View view = binding.getRoot();
         Bundle result = new Bundle();
-        result.putString("page","login");
-        getParentFragmentManager().setFragmentResult("changePage",result);
+        result.putString("page","home");
+//        getParentFragmentManager().setFragmentResult("changePage",result);
 
         binding.btnExit.setOnClickListener(new View.OnClickListener() {
             @Override

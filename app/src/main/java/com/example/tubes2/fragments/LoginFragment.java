@@ -41,7 +41,9 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
         binding.btnLogin.setOnClickListener(this);
 
-
+//        Bundle result = new Bundle();
+//        result.putString("page", "home");
+//        this.getParentFragmentManager().setFragmentResult("changePage", result);
 
         binding.password.setOnTouchListener(new View.OnTouchListener() {
             @Override

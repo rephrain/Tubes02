@@ -27,15 +27,15 @@ import org.json.JSONException;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements IMainActivity{
-    ActivityMainBinding binding;
+    private ActivityMainBinding binding;
     private FragmentManager fragmentManager;
-    LoginFragment fragmentL;
-    HomeFragment fragmentH;
-    PertemuanFragment fragmentP;
-    AddPertemuanFragment fragmentAP;
-    AnnouncementFragment fragmentAnnouncement;
-    AddPengumumanFragment fragmentAPengumuman;
-    MainPresenter presenter;
+    private LoginFragment fragmentL;
+    private HomeFragment fragmentH;
+    private PertemuanFragment fragmentP;
+    private AddPertemuanFragment fragmentAP;
+    private MainPresenter presenter;
+    private AnnouncementFragment fragmentAnnouncement;
+    private AddPengumumanFragment fragmentAPengumuman;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,9 +52,10 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
         fragmentAnnouncement = AnnouncementFragment.newInstance(presenter);
         fragmentAPengumuman = AddPengumumanFragment.newInstance("Fragment Add Pengumuman", presenter);
 
-        fragmentManager = getSupportFragmentManager();
+        fragmentManager = this.getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.fragment_container,fragmentH).commit();
+
+        fragmentTransaction.add(R.id.fragment_container,fragmentL).commit();
 
         getSupportFragmentManager().setFragmentResultListener("changePage",this,new FragmentResultListener() {
             @Override
@@ -65,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
         });
     }
 
+    @Override
     public void changePage(String page){
         FragmentTransaction ft = this.fragmentManager.beginTransaction();
         if (page.equals("login")){
@@ -150,22 +152,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
     }
 
     @Override
-    public void loginAuthenticated() {
-
-    }
-
-    @Override
-    public void executeGetSemesterDilalui() {
-
-    }
-
-    @Override
     public void updateListPertemuan(ArrayList<Pertemuan> pertemuans) {
-
-    }
-
-    @Override
-    public void resetAddForm() {
 
     }
 }
