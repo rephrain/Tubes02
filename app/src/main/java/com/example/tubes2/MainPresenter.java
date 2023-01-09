@@ -28,18 +28,31 @@ public class MainPresenter {
         this.iMainActivity.updateListPertemuan(pertemuans);
     }
 
+    public void delItemListPertemuan(Pertemuan pertemuan){
+        pertemuans.remove(pertemuan);
+        this.iMainActivity.updateListPertemuan(pertemuans);
+    }
+
     public void callAuthenticateTask(String email, String password, String role) throws JSONException {
         this.iMainActivity.loginUser(email, password, role);
     }
 
-    public void loginAuthenticated(User user){
+    public void loginAuthenticated(User user) throws JSONException {
         this.user = user;
         this.iMainActivity.changePage("home");
+        this.getAcademicYears();
     }
 
-    public void delItemListPertemuan(Pertemuan pertemuan){
-        pertemuans.remove(pertemuan);
-        this.iMainActivity.updateListPertemuan(pertemuans);
+    public void notifyLoginFailed(){
+        this.iMainActivity.notifyLoginFailed();
+    }
+
+    public void getAcademicYears() throws JSONException {
+        this.iMainActivity.getAcademicYears();
+    }
+
+    public User getUser(){
+        return this.user;
     }
 
     public void toggleFav (Pertemuan pertemuan){

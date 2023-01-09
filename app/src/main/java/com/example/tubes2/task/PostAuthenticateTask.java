@@ -49,18 +49,23 @@ public class PostAuthenticateTask {
                     e.printStackTrace();
                 }
                 Log.d("result", token);
-                processResult(response.toString());
+                try {
+                    processResult(token);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.d("result", "error");
+                presenter.notifyLoginFailed();
             }
         });
         mRequestQueue.add(request);
     }
 
-    public void processResult(String token){
+    public void processResult(String token) throws JSONException {
         this.user.setToken(token);
         this.presenter.loginAuthenticated(this.user);
     }

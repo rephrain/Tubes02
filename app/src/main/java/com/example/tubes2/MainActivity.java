@@ -10,6 +10,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Toast;
 
 import com.example.tubes2.databinding.ActivityMainBinding;
 import com.example.tubes2.fragments.AddPengumumanFragment;
@@ -20,6 +21,7 @@ import com.example.tubes2.fragments.LoginFragment;
 import com.example.tubes2.fragments.PertemuanFragment;
 import com.example.tubes2.model.Pertemuan;
 import com.example.tubes2.model.User;
+import com.example.tubes2.task.GetAcademicYears;
 import com.example.tubes2.task.PostAuthenticateTask;
 
 import org.json.JSONException;
@@ -222,5 +224,17 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
     @Override
     public void updateListPertemuan(ArrayList<Pertemuan> pertemuans) {
 
+    }
+
+    @Override
+    public void notifyLoginFailed() {
+        Toast.makeText(this,
+                "Masukkan salah", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void getAcademicYears() throws JSONException {
+        GetAcademicYears task = new GetAcademicYears(this.presenter, this);
+        task.execute();
     }
 }
