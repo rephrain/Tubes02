@@ -83,19 +83,19 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        drawerLayout = view.findViewById(R.id.drawer_layout);
+//        drawerLayout = view.findViewById(R.id.drawer_layout);
 //        btMenu = view.findViewById(R.id.bt_menu);
         recyclerView = view.findViewById(R.id.recycle_view);
 
-        arrayList.clear();
-        arrayList.add("Profile");
-        arrayList.add("Home");
-        arrayList.add("Settings");
-        arrayList.add("Log out");
-
-        adapter = new DrawerAdapter(getActivity(),arrayList);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(adapter);
+//        arrayList.clear();
+//        arrayList.add("Profile");
+//        arrayList.add("Home");
+//        arrayList.add("Settings");
+//        arrayList.add("Log out");
+//
+//        adapter = new DrawerAdapter(getActivity(),arrayList);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+//        recyclerView.setAdapter(adapter);
 
 //        btMenu.setOnClickListener(new View.OnClickListener() {
 //            @Override

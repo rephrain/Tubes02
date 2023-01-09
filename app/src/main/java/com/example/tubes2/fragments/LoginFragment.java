@@ -40,17 +40,17 @@ public class LoginFragment extends Fragment {
                 email = binding.email.getText().toString();
                 password = binding.password.getText().toString();
 
-//                if(email.trim().equals("")){
-//                    binding.email.setError("Email Tidak Boleh Kosong");
-//                }
-//                else if(password.trim().equals("")){
-//                    binding.password.setError("Password Tidak Boleh Kosong");
-//                }
-//                else{
-//                    hideKeyboard(view);
-//                    result.putString("page","home");
-//                    getParentFragmentManager().setFragmentResult("changePage",result);
-//                }
+                if(email.trim().equals("")){
+                    binding.email.setError("Email Tidak Boleh Kosong");
+                }
+                else if(password.trim().equals("")){
+                    binding.password.setError("Password Tidak Boleh Kosong");
+                }
+                else{
+                    hideKeyboard(view);
+                    result.putString("page","home");
+                    getParentFragmentManager().setFragmentResult("changePage",result);
+                }
 
             }
         });
