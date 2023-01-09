@@ -5,22 +5,64 @@
     android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="50px">
+        android:layout_height="match_parent">
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="Prasyarat"
             android:textSize="30dp"
-            android:textColor="@color/black"
             android:textStyle="bold"
-            android:paddingBottom="15dp"
-            android:id="@+id/title_prasyarat"/>
+            android:paddingLeft="15dp"
+            android:paddingTop="15dp"
+            android:id="@+id/titleListPrasyarat"/>
         <ListView
+            android:layout_margin="10dp"
             android:dividerHeight="15px"
-            android:id="@+id/lv_listSemester"
+            android:id="@+id/lv_listPrasyarat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/title_prasyarat"></ListView>
+            android:layout_below="@+id/titleListPrasyarat"
+            android:layout_marginBottom="100dp"></ListView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/menu"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:elevation="30dp">
+            <ImageView
+                android:id="@+id/menu_home"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_baseline_home_24"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center"
+                android:layout_weight="1">
+            </ImageView>
+            <ImageView
+                android:id="@+id/menu_announcement"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_announcement"
+                android:layout_weight="1">
+            </ImageView>
+            <ImageView
+                android:id="@+id/menu_appointment"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_appointment"
+                android:layout_weight="1">
+            </ImageView>
+            <ImageView
+                android:id="@+id/menu_frs"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_frs"
+                android:layout_weight="1">
+            </ImageView>
+        </LinearLayout>
     </RelativeLayout>
 </FrameLayout>
