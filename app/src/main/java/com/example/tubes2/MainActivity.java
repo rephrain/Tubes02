@@ -21,8 +21,8 @@ import com.example.tubes2.fragments.HomeFragment;
 import com.example.tubes2.fragments.LoginFragment;
 import com.example.tubes2.fragments.PertemuanFragment;
 import com.example.tubes2.model.Pertemuan;
-import com.example.tubes2.model.User;
 import com.example.tubes2.task.GetAcademicYears;
+import com.example.tubes2.task.PostAnnouncementTask;
 import com.example.tubes2.task.GetAppointmentsTask;
 import com.example.tubes2.task.GetUserInformationTask;
 import com.example.tubes2.task.PostAuthenticateTask;
@@ -267,6 +267,12 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
     public void loginUser(String email, String password, String role) throws JSONException {
         PostAuthenticateTask task = new PostAuthenticateTask(this.presenter, this);
         task.execute(email, password, role);
+    }
+
+    @Override
+    public void AddAnnouncement(String judul, String[] tags, String content) throws JSONException {
+        PostAnnouncementTask task = new PostAnnouncementTask(this.presenter, this);
+        task.execute(judul,tags,content);
     }
 
     @Override
