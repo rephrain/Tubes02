@@ -45,7 +45,7 @@ public class HomeFragment extends Fragment {
         this.binding = FragmentHomeBinding.inflate(inflater);
         View view = binding.getRoot();
         Bundle result = new Bundle();
-        result.putString("page","home");
+//        result.putString("page","home");
 //        getParentFragmentManager().setFragmentResult("changePage",result);
 
         binding.btnExit.setOnClickListener(new View.OnClickListener() {
@@ -89,6 +89,14 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 result.putString("page","addPengumuman");
+                getParentFragmentManager().setFragmentResult("changePage",result);
+            }
+        });
+
+        binding.menuFrs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                result.putString("page","frs");
                 getParentFragmentManager().setFragmentResult("changePage",result);
             }
         });

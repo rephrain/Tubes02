@@ -97,6 +97,7 @@ public class AnnouncementFragment extends Fragment implements View.OnClickListen
         binding.menuAppointment.setOnClickListener(this::onClick);
         binding.menuHome.setOnClickListener(this::onClick);
         binding.btnAdd.setOnClickListener(this::onClick);
+        binding.menuFrs.setOnClickListener(this::onClick);
         return view;
     }
 
@@ -144,6 +145,9 @@ public class AnnouncementFragment extends Fragment implements View.OnClickListen
             this.getParentFragmentManager().setFragmentResult("changePage", result);
         }else if(view.getId() == binding.btnAdd.getId()) {
             result.putString("page", "addPengumuman");
+            this.getParentFragmentManager().setFragmentResult("changePage", result);
+        }else if(view.getId() == binding.menuFrs.getId()) {
+            result.putString("page", "frs");
             this.getParentFragmentManager().setFragmentResult("changePage", result);
         }
     }
