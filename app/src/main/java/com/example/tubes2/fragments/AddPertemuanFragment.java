@@ -59,12 +59,16 @@ public class AddPertemuanFragment extends Fragment implements View.OnClickListen
         binding.btnTanggalPertemuan.setOnClickListener(this::onClick);
         binding.etWaktuPertemuan.setOnClickListener(this::onClick);
         binding.etPartisipanPertemuan.setOnClickListener(this::onClick);
-        binding.etJadwalPartisipan.setOnClickListener(this::onClick);
+        binding.btnBack.setOnClickListener(this::onClick);
         return view;
     }
     @Override
     public void onClick(View view) {
-        if(view.getId() == binding.btnTanggalPertemuan.getId()){
+        Bundle result = new Bundle();
+        if(view == binding.btnBack){
+            result.putString("page","pertemuan");
+            this.getParentFragmentManager().setFragmentResult("changePage",result);
+        }else if(view.getId() == binding.btnTanggalPertemuan.getId()){
             Calendar calendar = Calendar.getInstance();
             final int year = calendar.get(Calendar.YEAR);
             final int month = calendar.get(Calendar.MONTH);
@@ -96,11 +100,8 @@ public class AddPertemuanFragment extends Fragment implements View.OnClickListen
         else if(view == binding.etPartisipanPertemuan){
 
         }
-        else if(view == binding.etJadwalPartisipan){
-
-        }
         else if(view.getId() == binding.btnSimpan.getId()){
-            Bundle result = new Bundle();
+
             Bundle newPertemuan = new Bundle();
             judul = binding.etJudulPertemuan.getText().toString();
             tanggalPertemuan = binding.btnTanggalPertemuan.getText().toString();

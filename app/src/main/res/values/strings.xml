@@ -16,16 +16,17 @@
     <string name="welcome_back">Welcome Back!</string>
     <string name="login">LOGIN</string>
     <string name="sign_up">Sign Up</string>
+    <string name="back">&lt;</string>
 
     <string name="title_pertemuan">Pertemuan</string>
 
     <string name="title_add_pertemuan">Tambah Pertemuan</string>
-    <string name="judul_pertemuan">Judul</string>
-    <string name="jadwal_pertemuan">Jadwal</string>
-    <string name="partisipan_pertemuan">Partisipan</string>
+    <string name="judul_pertemuan">Judul Pertemuan : </string>
+    <string name="jadwal_pertemuan">Jadwal Pertemuan :</string>
+    <string name="partisipan_pertemuan">Partisipan Pertemuan :</string>
     <string name="btn_jadwal_dosen">Lihat Jadwal Dosen</string>
-    <string name="deskripsi_pertemuan">Deskripsi</string>
-    <string name="btn_simpan_pertemuan">Simpan</string>
+    <string name="deskripsi_pertemuan">Deskripsi Pertemuan : </string>
+    <string name="btn_simpan_pertemuan">Simpan Pertemuan</string>
 
     <string name="title_add_pengumuman">Tambah Pengumuman : </string>
     <string name="judul_pengumuman">Judul Pengumuman : </string>

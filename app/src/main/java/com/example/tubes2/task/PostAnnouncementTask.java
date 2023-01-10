@@ -33,7 +33,7 @@ public class PostAnnouncementTask {
     }
 
     public void execute(String title, String content, ArrayList<String> tags) throws JSONException {
-        this.pengumuman = new Pengumuman(title,content,tags);
+//        this.pengumuman = new Pengumuman(title,content,tags);
         JSONObject json = new JSONObject(this.gson.toJson(pengumuman));
         Log.d("json", json.toString());
         this.callVolley(json);
