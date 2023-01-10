@@ -15,10 +15,13 @@ import com.example.tubes2.IMainActivity;
 import com.example.tubes2.MainPresenter;
 import com.example.tubes2.model.User;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,11 +48,26 @@ public class GetAcademicYears {
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, this.BASE_URL, new JSONObject(), new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+                JSONArray resp = new JSONArray();
                 try {
-                    Log.d("result", response.getJSONArray("academic_years").toString());
+                    resp = response.getJSONArray("academic_years");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+                ArrayList<String> academic_years = new ArrayList<String>();
+                for (int i = 0; i < resp.length(); i++){
+                    try {
+                        academic_years.add(resp.get(i).toString());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                Log.d("result array", academic_years.toString());
+//                try {
+//                    Log.d("result", response.getJSONArray("academic_years").toString());
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
 //                processResult(response.toString());
             }
         }, new Response.ErrorListener() {
