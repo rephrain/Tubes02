@@ -32,7 +32,7 @@ public class FrsFragment extends Fragment implements View.OnClickListener{
         this.adapter = new FrsAdapter(this, inflater, this.presenter);
         this.binding.lvListPrasyarat.setAdapter(adapter);
         View view = binding.getRoot();
-//        binding.lvListPrasyarat.setOnClickListener(this::onClick);
+        binding.titleListPrasyarat.setOnClickListener(this::onClick); //sementara ke title dulu karna belum connect API
         binding.menuAnnouncement.setOnClickListener(this::onClick);
         binding.menuAppointment.setOnClickListener(this::onClick);
         binding.menuHome.setOnClickListener(this::onClick);
@@ -43,7 +43,7 @@ public class FrsFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View view) {
         Bundle result = new Bundle();
-        if(view.getId() == binding.lvListPrasyarat.getId()) {
+        if(view.getId() == binding.titleListPrasyarat.getId()) { //sementara ke title dulu karna belum connect API
             result.putString("page", "semester");
             this.getParentFragmentManager().setFragmentResult("changePage", result);
         }else if(view.getId() == binding.menuAnnouncement.getId()) {

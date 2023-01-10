@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
+import com.example.tubes2.adapter.SemesterAdapter;
 import com.example.tubes2.databinding.ActivityMainBinding;
 import com.example.tubes2.fragments.AddPengumumanFragment;
 import com.example.tubes2.fragments.AddPertemuanFragment;
@@ -20,6 +21,7 @@ import com.example.tubes2.fragments.FrsFragment;
 import com.example.tubes2.fragments.HomeFragment;
 import com.example.tubes2.fragments.LoginFragment;
 import com.example.tubes2.fragments.PertemuanFragment;
+import com.example.tubes2.fragments.SemesterFragment;
 import com.example.tubes2.model.Pertemuan;
 import com.example.tubes2.model.User;
 import com.example.tubes2.task.GetAcademicYears;
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
     private AnnouncementFragment fragmentAnnouncement;
     private AddPengumumanFragment fragmentAPengumuman;
     private FrsFragment fragmentFrs;
+    private SemesterFragment fragmentSemester;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
         fragmentAnnouncement = AnnouncementFragment.newInstance(presenter);
         fragmentAPengumuman = AddPengumumanFragment.newInstance("Fragment Add Pengumuman", presenter);
         fragmentFrs = FrsFragment.newInstance(presenter);
+        fragmentSemester = SemesterFragment.newInstance(presenter);
 
         fragmentManager = this.getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -99,6 +103,9 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
             if (this.fragmentFrs.isAdded()){
                 ft.hide(this.fragmentFrs);
             }
+            if (this.fragmentSemester.isAdded()){
+                ft.hide(this.fragmentSemester);
+            }
             closeKeyboard();
         } else if (page.equals("home")){
             if (this.fragmentH.isAdded()){
@@ -123,6 +130,9 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
             }
             if (this.fragmentFrs.isAdded()){
                 ft.hide(this.fragmentFrs);
+            }
+            if (this.fragmentSemester.isAdded()){
+                ft.hide(this.fragmentSemester);
             }
             closeKeyboard();
         } else if (page.equals("pertemuan")){
@@ -149,6 +159,9 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
             if (this.fragmentFrs.isAdded()){
                 ft.hide(this.fragmentFrs);
             }
+            if (this.fragmentSemester.isAdded()){
+                ft.hide(this.fragmentSemester);
+            }
             closeKeyboard();
         }else if (page.equals("addPertemuan")){
             if (this.fragmentAP.isAdded()){
@@ -173,6 +186,9 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
             }
             if (this.fragmentFrs.isAdded()){
                 ft.hide(this.fragmentFrs);
+            }
+            if (this.fragmentSemester.isAdded()){
+                ft.hide(this.fragmentSemester);
             }
             closeKeyboard();
         }else if (page.equals("pengumuman")){
@@ -199,6 +215,9 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
             if (this.fragmentFrs.isAdded()){
                 ft.hide(this.fragmentFrs);
             }
+            if (this.fragmentSemester.isAdded()){
+                ft.hide(this.fragmentSemester);
+            }
             closeKeyboard();
         }else if (page.equals("addPengumuman")){
             if (this.fragmentAPengumuman.isAdded()){
@@ -224,6 +243,9 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
             if (this.fragmentFrs.isAdded()){
                 ft.hide(this.fragmentFrs);
             }
+            if (this.fragmentSemester.isAdded()){
+                ft.hide(this.fragmentSemester);
+            }
             closeKeyboard();
         }else if (page.equals("frs")){
             if (this.fragmentFrs.isAdded()){
@@ -248,6 +270,37 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
             }
             if (this.fragmentAPengumuman.isAdded()){
                 ft.hide(this.fragmentAPengumuman);
+            }
+            if (this.fragmentSemester.isAdded()){
+                ft.hide(this.fragmentSemester);
+            }
+            closeKeyboard();
+        }else if (page.equals("semester")){
+            if (this.fragmentSemester.isAdded()){
+                ft.show(this.fragmentSemester);
+            } else{
+                ft.add(R.id.fragment_container,this.fragmentSemester).addToBackStack(null);
+            }
+            if (this.fragmentL.isAdded()){
+                ft.hide(this.fragmentL);
+            }
+            if (this.fragmentH.isAdded()){
+                ft.hide(this.fragmentH);
+            }
+            if (this.fragmentP.isAdded()){
+                ft.hide(this.fragmentP);
+            }
+            if (this.fragmentAP.isAdded()){
+                ft.hide(this.fragmentAP);
+            }
+            if (this.fragmentAnnouncement.isAdded()){
+                ft.hide(this.fragmentAnnouncement);
+            }
+            if (this.fragmentAPengumuman.isAdded()){
+                ft.hide(this.fragmentAPengumuman);
+            }
+            if (this.fragmentFrs.isAdded()){
+                ft.hide(this.fragmentFrs);
             }
             closeKeyboard();
         }
