@@ -55,6 +55,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="30dp"
+            android:textColorHint="@color/lightgrey"
             android:hint="@string/email_hint"
             android:textSize="14sp"
             android:inputType="textEmailAddress">
@@ -75,6 +76,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="30dp"
+            android:textColorHint="@color/lightgrey"
             android:textSize="14sp"
             android:background="@color/white"
             android:hint="@string/password_hint"
@@ -98,6 +100,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="30dp"
+            android:textColorHint="@color/lightgrey"
             android:background="@color/white"
             android:hint="@string/role_hint"
             android:textSize="14sp"

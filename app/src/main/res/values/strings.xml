@@ -9,9 +9,9 @@
     <string name="informatics_apps">Informatics Apps</string>
     <string name="please_login_first">Please login first!</string>
     <string name="email">Email : </string>
-    <string name="email_hint">user@unpar.ac.id</string>
+    <string name="email_hint">E.g. user@unpar.ac.id</string>
     <string name="password">Password : </string>
-    <string name="password_hint">***********</string>
+    <string name="password_hint">E.g. *********</string>
     <string name="forget_password">Forget Password?</string>
     <string name="welcome_back">Welcome Back!</string>
     <string name="login">LOGIN</string>
@@ -44,6 +44,6 @@
     <string name="welcome">Welcome : </string>
     <string name="student">Student</string>
     <string name="role">Role : </string>
-    <string name="role_hint">admin</string>
+    <string name="role_hint">E.g. admin</string>
     <string name="prasyarat">Prasyarat</string>
 </resources>
