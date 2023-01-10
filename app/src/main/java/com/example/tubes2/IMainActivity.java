@@ -1,5 +1,6 @@
 package com.example.tubes2;
 
+import com.example.tubes2.model.Pengumuman;
 import com.example.tubes2.model.Pertemuan;
 import com.example.tubes2.model.User;
 
@@ -18,4 +19,5 @@ public interface IMainActivity {
     void runGetUserInfoTask() throws JSONException;
 //    void hideAddAppointmentForAdmin();
     void getAppointments() throws JSONException;
+    void updateListPengumuman(ArrayList<Pengumuman> pengumumans);
 }

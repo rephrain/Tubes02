@@ -83,6 +83,7 @@ public class MainPresenter {
     public void addedAnnouncement(ArrayList<Pengumuman> pengumumans) {
         this.pengumumans = pengumumans;
         this.iMainActivity.changePage("pengumuman");
+        this.iMainActivity.updateListPengumuman(pengumumans);
     }
 
     public ArrayList<Pengumuman> getPengumuman(){

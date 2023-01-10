@@ -64,7 +64,7 @@ public class PengumumanAdapter extends BaseAdapter {
         else {
             viewHolder = (ViewHolder) view.getTag();
         }
-        viewHolder.updateView(this.getItem(i),i);
+        viewHolder.updateView(this.getItem(i));
         return view;
     }
 
@@ -76,7 +76,7 @@ public class PengumumanAdapter extends BaseAdapter {
             this.binding = binding;
         }
 
-        public void updateView(Pengumuman pengumuman, int i){
+        public void updateView(Pengumuman pengumuman){
             this.pengumuman = pengumuman;
             this.binding.tvJudulPengumuman.setText(pengumuman.getTitle());
             this.binding.tvIsiPengumuman.setText(pengumuman.getContent());

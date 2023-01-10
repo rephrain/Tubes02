@@ -20,6 +20,7 @@ import com.example.tubes2.fragments.FrsFragment;
 import com.example.tubes2.fragments.HomeFragment;
 import com.example.tubes2.fragments.LoginFragment;
 import com.example.tubes2.fragments.PertemuanFragment;
+import com.example.tubes2.model.Pengumuman;
 import com.example.tubes2.model.Pertemuan;
 import com.example.tubes2.task.GetAcademicYears;
 import com.example.tubes2.task.PostAnnouncementTask;
@@ -307,6 +308,11 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
     public void getAppointments() throws JSONException {
         GetAppointmentsTask task = new GetAppointmentsTask(this.presenter, this);
         task.execute();
+    }
+
+    @Override
+    public void updateListPengumuman(ArrayList<Pengumuman> pengumumans) {
+        this.fragmentAnnouncement.updateListPengumuman(pengumumans);
     }
 
 //    @Override
