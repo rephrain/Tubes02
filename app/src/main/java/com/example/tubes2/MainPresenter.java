@@ -3,6 +3,7 @@ package com.example.tubes2;
 import android.content.Context;
 import android.os.Bundle;
 
+import com.example.tubes2.model.Pengumuman;
 import com.example.tubes2.model.Pertemuan;
 import com.example.tubes2.model.User;
 
@@ -15,6 +16,7 @@ public class MainPresenter {
     protected IMainActivity iMainActivity;
     protected Context context;
     private User user;
+    private Pengumuman pengumuman;
     private String page;
 
     public MainPresenter(IMainActivity iMainActivity, Context context){
@@ -57,5 +59,18 @@ public class MainPresenter {
 
     public void toggleFav (Pertemuan pertemuan){
         pertemuan.toggleFavorite();
+    }
+
+    public void callAnnouncementTask(String judul, String[] tags, String content) throws JSONException{
+        this.iMainActivity.AddAnnouncement(judul,tags,content);
+    }
+
+    public void addedAnnouncement(Pengumuman pengumuman) {
+        this.pengumuman = pengumuman;
+        this.iMainActivity.changePage("pengumuman");
+    }
+
+    public Pengumuman getPengumuman(){
+        return pengumuman;
     }
 }

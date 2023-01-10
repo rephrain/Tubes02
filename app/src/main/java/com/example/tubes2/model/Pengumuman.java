@@ -7,38 +7,45 @@ import java.util.ArrayList;
 public class Pengumuman {
     String id;
     String title;
+    String content;
+    String[] tags;
     String updated_at;
-    String created_at;
-    Author author;
-    ArrayList<Tags> tags;
 
-    public Pengumuman(String id, String title, String updated_at, String created_at, Author author, ArrayList<Tags> tags){
-        this.id = id;
+    public Pengumuman(String title, String content, String[] tags){
         this.title = title;
-        this.updated_at = updated_at;
-        this.created_at = created_at;
-        this.author = author;
+        this.content = content;
         this.tags = tags;
     }
-    public String getTitle() {
+
+    public String getTitle(){
         return title;
     }
-}
-class Author{
-    String id;
-    String author;
 
-    public Author(String id, String author){
-        this.id = id;
-        this.author = author;
+    public String getTags(){
+        StringBuilder tag = new StringBuilder();
+        for (String s : tags) {
+            tag.append(s).append(", ");
+        }
+        return tag.toString();
     }
-}
-class Tags{
-    String tag;
-    String tag_id;
 
-    public Tags(String tag, String tag_id){
-        this.tag = tag;
-        this.tag_id = tag_id;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setContent(String content) {
+        this.id = content;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updated_at = updatedAt;
+    }
+
+    public String getContent() {
+        return content;
     }
 }

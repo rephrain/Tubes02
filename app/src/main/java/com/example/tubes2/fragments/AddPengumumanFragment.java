@@ -13,8 +13,12 @@ import androidx.fragment.app.Fragment;
 import com.example.tubes2.MainPresenter;
 import com.example.tubes2.databinding.PengumumanAddBinding;
 import com.example.tubes2.databinding.PertemuanAddBinding;
+import com.example.tubes2.model.Pertemuan;
+
+import org.json.JSONException;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 
 public class AddPengumumanFragment  extends Fragment implements View.OnClickListener{
@@ -52,7 +56,6 @@ public class AddPengumumanFragment  extends Fragment implements View.OnClickList
     public void onClick(View view) {
         Bundle result = new Bundle();
         if(view.getId() == binding.submit.getId()) {
-
             Bundle newPengumuman = new Bundle();
             judul = binding.judulPengumuman.getText().toString();
             tags = binding.tagPengumuman.getText().toString();
@@ -71,8 +74,14 @@ public class AddPengumumanFragment  extends Fragment implements View.OnClickList
                 result.putString("page","pengumuman");
                 this.getParentFragmentManager().setFragmentResult("addToListPengumuman",newPengumuman);
                 this.getParentFragmentManager().setFragmentResult("changePage",result);
+                try {
+                    String[] tag = tags.split(",");
+                    this.presenter.callAnnouncementTask(this.judul,tag,this.content);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
-        }else if(view.getId() == binding.submit.getId()) {
+        }else if(view.getId() == binding.btnBack.getId()) {
             result.putString("page","pengumuman");
             this.getParentFragmentManager().setFragmentResult("changePage",result);
         }

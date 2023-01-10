@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -33,12 +34,15 @@ import com.example.tubes2.model.Pengumuman;
 import com.example.tubes2.model.Pertemuan;
 import com.example.tubes2.model.User;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -47,11 +51,6 @@ public class AnnouncementFragment extends Fragment implements View.OnClickListen
     private FragmentPengumumanBinding binding;
     private PengumumanAdapter adapter;
     private MainPresenter presenter;
-    Gson gson;
-    ArrayList<String> tag;
-    ArrayList<String> tagId;
-    SharedPreferences sharedPreferences;
-    User user;
 
     public AnnouncementFragment(){}
 
@@ -64,19 +63,9 @@ public class AnnouncementFragment extends Fragment implements View.OnClickListen
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         this.binding = FragmentPengumumanBinding.inflate(inflater);
-
-        this.user = presenter.getUser();
-        this.gson = new Gson();
-
-        this.tag = new ArrayList<>();
-        this.tagId = new ArrayList<>();
-        this.sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
         this.adapter = new PengumumanAdapter(this,inflater,this.presenter);
         this.binding.lvListPrasyarat.setAdapter(adapter);
-
-        //memanggil API
-        callAPI(BASE_URL);
-
+        adapter.add(presenter.getPengumuman());
         this.getParentFragmentManager().setFragmentResultListener("addToListPengumuman", this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
@@ -98,36 +87,6 @@ public class AnnouncementFragment extends Fragment implements View.OnClickListen
         binding.menuHome.setOnClickListener(this::onClick);
         binding.btnAdd.setOnClickListener(this::onClick);
         return view;
-    }
-
-    private void callAPI(String base_url) {
-        this.binding.lvListPrasyarat.setAdapter(new ArrayAdapter<>(getActivity(), R.layout.item_list_pengumuman,R.id.tv_judul_pengumuman));
-        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, BASE_URL, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try{
-                    JSONObject jsonObject = new JSONObject(response);
-                    Object object = jsonObject.getJSONObject("metadata").get("next");
-
-                } catch (JSONException e){
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-            }
-        }){
-            @Override
-            public Map<String,String> getHeaders() throws AuthFailureError {
-                HashMap<String,String> header = new HashMap<String, String>();
-                header.put("Authorization", "Bearer " + user.getToken());
-                return header;
-            }
-        };
-        requestQueue.add(stringRequest);;
     }
 
     @Override
