@@ -75,7 +75,7 @@ public class AddPengumumanFragment  extends Fragment implements View.OnClickList
                 this.getParentFragmentManager().setFragmentResult("addToListPengumuman",newPengumuman);
                 this.getParentFragmentManager().setFragmentResult("changePage",result);
                 try {
-                    String[] tag = tags.split(",");
+                    String[] tag = tags.split(",",5);
                     this.presenter.callAnnouncementTask(this.judul,tag,this.content);
                 } catch (JSONException e) {
                     e.printStackTrace();

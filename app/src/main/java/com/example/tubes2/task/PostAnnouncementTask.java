@@ -12,6 +12,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tubes2.MainPresenter;
 import com.example.tubes2.model.Pengumuman;
+import com.example.tubes2.model.Pertemuan;
 import com.example.tubes2.model.User;
 import com.google.gson.Gson;
 
@@ -28,7 +29,7 @@ public class PostAnnouncementTask {
     private MainPresenter presenter;
     private Context context;
     private Gson gson;
-    private Pengumuman pengumuman;
+    protected ArrayList<Pengumuman> pengumumans;
     private User user;
 
     public PostAnnouncementTask(MainPresenter presenter, Context context){
@@ -36,11 +37,12 @@ public class PostAnnouncementTask {
         this.context = context;
         this.gson = new Gson();
         this.user = presenter.getUser();
+        this.pengumumans = new ArrayList<>();
     }
 
     public void execute(String title, String[] tags, String content) throws JSONException {
-        this.pengumuman = new Pengumuman(title,content,tags);
-        JSONObject json = new JSONObject(this.gson.toJson(pengumuman));
+        this.pengumumans.add(new Pengumuman(title,content,tags));
+        JSONObject json = new JSONObject(this.gson.toJson(pengumumans));
         Log.d("json", json.toString());
         this.callVolley(json);
     }
@@ -87,10 +89,6 @@ public class PostAnnouncementTask {
     }
 
     public void processResult(String id, String title, String content, String updated_at) throws JSONException {
-        this.pengumuman.setId(id);
-        this.pengumuman.setTitle(title);
-        this.pengumuman.setContent(content);
-        this.pengumuman.setUpdatedAt(updated_at);
-        this.presenter.addedAnnouncement(this.pengumuman);
+        this.presenter.addedAnnouncement(this.pengumumans);
     }
 }

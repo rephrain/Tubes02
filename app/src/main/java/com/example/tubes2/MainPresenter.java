@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 public class MainPresenter {
     protected ArrayList<Pertemuan> pertemuans;
+    protected ArrayList<Pengumuman> pengumumans;
     protected IMainActivity iMainActivity;
     protected Context context;
     private User user;
@@ -65,12 +66,12 @@ public class MainPresenter {
         this.iMainActivity.AddAnnouncement(judul,tags,content);
     }
 
-    public void addedAnnouncement(Pengumuman pengumuman) {
-        this.pengumuman = pengumuman;
+    public void addedAnnouncement(ArrayList<Pengumuman> pengumumans) {
+        this.pengumumans = pengumumans;
         this.iMainActivity.changePage("pengumuman");
     }
 
-    public Pengumuman getPengumuman(){
-        return pengumuman;
+    public ArrayList<Pengumuman> getPengumuman(){
+        return this.pengumumans;
     }
 }

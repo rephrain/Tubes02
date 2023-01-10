@@ -47,7 +47,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AnnouncementFragment extends Fragment implements View.OnClickListener, InterfacePengumuman {
-    String BASE_URL = "https://ifportal.labftis.net/api/v1/announcements";
     private FragmentPengumumanBinding binding;
     private PengumumanAdapter adapter;
     private MainPresenter presenter;
@@ -65,7 +64,9 @@ public class AnnouncementFragment extends Fragment implements View.OnClickListen
         this.binding = FragmentPengumumanBinding.inflate(inflater);
         this.adapter = new PengumumanAdapter(this,inflater,this.presenter);
         this.binding.lvListPrasyarat.setAdapter(adapter);
-        adapter.add(presenter.getPengumuman());
+        for (int i=0; i<presenter.getPengumuman().size(); i++){
+            adapter.add(presenter.getPengumuman().get(i));
+        }
         this.getParentFragmentManager().setFragmentResultListener("addToListPengumuman", this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
