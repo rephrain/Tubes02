@@ -8,62 +8,111 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="10dp">
-        <TextView
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/title_add_pengumuman"
-            android:textSize="30sp"
-            android:textStyle="bold"/>
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/btn_back"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/back"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                android:textColor="@color/gray"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:layout_marginBottom="20dp"
+                android:elevation="25dp"/>
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/title_add_pengumuman"
+                android:textSize="30sp"
+                android:layout_weight="2"
+                android:textStyle="bold"
+                android:paddingLeft="15dp"
+                android:textColor="@color/darkgrey"
+                android:layout_marginBottom="20dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:paddingTop="5dp"
+            android:background="@drawable/menu"
+            android:orientation="vertical"
+            android:elevation="25dp">
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/judul_pengumuman"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:textSize="20sp"/>
+            <EditText
+                android:id="@+id/judul_pengumuman"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:hint="Masukan Judul Pengumuman"
+                android:textColorHint="@color/lightgrey"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:textSize="18sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tag_pengumuman"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:textSize="20sp"/>
+            <EditText
+                android:id="@+id/tag_pengumuman"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:hint="Masukan Tag Pengumuman"
+                android:textColorHint="@color/lightgrey"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:textSize="18sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/isi_pengumuman"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:textSize="20sp"/>
+            <EditText
+                android:id="@+id/isi_pengumuman"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:hint="Masukan Judul Pengumuman"
+                android:textColorHint="@color/lightgrey"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:textSize="18sp"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/judul_pengumuman"
-            android:layout_marginTop="5dp"
-            android:textSize="15sp"/>
-        <EditText
-            android:id="@+id/judul_pengumuman"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:importantForAutofill="no"
-            android:inputType="text"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/tag_pengumuman"
-            android:layout_marginTop="5dp"
-            android:textSize="15sp"/>
-        <EditText
-            android:id="@+id/tag_pengumuman"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:importantForAutofill="no"
-            android:inputType="text"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/isi_pengumuman"
-            android:layout_marginTop="5dp"
-            android:textSize="15sp"/>
-        <EditText
-            android:id="@+id/isi_pengumuman"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:importantForAutofill="no"
-            android:inputType="text"/>
+        </LinearLayout>
         <Button
             android:id="@+id/submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
             android:text="submit"
-            android:backgroundTint="@color/grey"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="@color/gray"
             android:layout_marginTop="20dp"
             android:textColor="@color/black"/>
-
     </LinearLayout>
 </ScrollView>

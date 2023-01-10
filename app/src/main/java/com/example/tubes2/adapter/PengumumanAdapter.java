@@ -79,7 +79,7 @@ public class PengumumanAdapter extends BaseAdapter {
         public void updateView(Pengumuman pengumuman){
             this.pengumuman = pengumuman;
             this.binding.tvJudulPengumuman.setText(this.pengumuman.getTitle());
-            this.binding.tvIsiPengumuman.setText(this.pengumuman.getContent());
+//            this.binding.tvIsiPengumuman.setText(this.pengumuman.getContent());
         }
     }
 }

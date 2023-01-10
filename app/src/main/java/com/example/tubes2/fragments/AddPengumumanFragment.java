@@ -44,13 +44,15 @@ public class AddPengumumanFragment  extends Fragment implements View.OnClickList
         this.binding = PengumumanAddBinding.inflate(inflater);
         View view = binding.getRoot();
         binding.submit.setOnClickListener(this::onClick);
+        binding.btnBack.setOnClickListener(this::onClick);
         return view;
     }
 
     @Override
     public void onClick(View view) {
+        Bundle result = new Bundle();
         if(view.getId() == binding.submit.getId()) {
-            Bundle result = new Bundle();
+
             Bundle newPengumuman = new Bundle();
             judul = binding.judulPengumuman.getText().toString();
             tags = binding.tagPengumuman.getText().toString();
@@ -70,6 +72,9 @@ public class AddPengumumanFragment  extends Fragment implements View.OnClickList
                 this.getParentFragmentManager().setFragmentResult("addToListPengumuman",newPengumuman);
                 this.getParentFragmentManager().setFragmentResult("changePage",result);
             }
+        }else if(view.getId() == binding.submit.getId()) {
+            result.putString("page","pengumuman");
+            this.getParentFragmentManager().setFragmentResult("changePage",result);
         }
     }
 
