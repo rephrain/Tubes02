@@ -15,4 +15,6 @@ public interface IMainActivity {
     void getAcademicYears() throws JSONException;
     void setUserInformationAtHome(String role, String nama);
     void runGetUserInfoTask() throws JSONException;
+//    void hideAddAppointmentForAdmin();
+    void getAppointments() throws JSONException;
 }
