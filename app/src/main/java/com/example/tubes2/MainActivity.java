@@ -16,12 +16,15 @@ import com.example.tubes2.databinding.ActivityMainBinding;
 import com.example.tubes2.fragments.AddPengumumanFragment;
 import com.example.tubes2.fragments.AddPertemuanFragment;
 import com.example.tubes2.fragments.AnnouncementFragment;
+import com.example.tubes2.fragments.FrsFragment;
 import com.example.tubes2.fragments.HomeFragment;
 import com.example.tubes2.fragments.LoginFragment;
 import com.example.tubes2.fragments.PertemuanFragment;
 import com.example.tubes2.model.Pertemuan;
 import com.example.tubes2.task.GetAcademicYears;
 import com.example.tubes2.task.PostAnnouncementTask;
+import com.example.tubes2.task.GetAppointmentsTask;
+import com.example.tubes2.task.GetUserInformationTask;
 import com.example.tubes2.task.PostAuthenticateTask;
 
 import org.json.JSONException;
@@ -38,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
     private MainPresenter presenter;
     private AnnouncementFragment fragmentAnnouncement;
     private AddPengumumanFragment fragmentAPengumuman;
+    private FrsFragment fragmentFrs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,11 +52,12 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
         this.presenter = new MainPresenter(this, this);
 
         fragmentL = LoginFragment.newInstance("Fragment Login", this.presenter);
-        fragmentH = HomeFragment.newInstance("Fragment Home");
+        fragmentH = HomeFragment.newInstance("Fragment Home", this.presenter);
         fragmentP = PertemuanFragment.newInstance(presenter);
         fragmentAP = AddPertemuanFragment.newInstance("Fragment Add Pertemuan", presenter);
         fragmentAnnouncement = AnnouncementFragment.newInstance(presenter);
         fragmentAPengumuman = AddPengumumanFragment.newInstance("Fragment Add Pengumuman", presenter);
+        fragmentFrs = FrsFragment.newInstance(presenter);
 
         fragmentManager = this.getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -92,6 +97,9 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
             if (this.fragmentAPengumuman.isAdded()){
                 ft.hide(this.fragmentAPengumuman);
             }
+            if (this.fragmentFrs.isAdded()){
+                ft.hide(this.fragmentFrs);
+            }
             closeKeyboard();
         } else if (page.equals("home")){
             if (this.fragmentH.isAdded()){
@@ -113,6 +121,9 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
             }
             if (this.fragmentAPengumuman.isAdded()){
                 ft.hide(this.fragmentAPengumuman);
+            }
+            if (this.fragmentFrs.isAdded()){
+                ft.hide(this.fragmentFrs);
             }
             closeKeyboard();
         } else if (page.equals("pertemuan")){
@@ -136,6 +147,9 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
             if (this.fragmentAPengumuman.isAdded()){
                 ft.hide(this.fragmentAPengumuman);
             }
+            if (this.fragmentFrs.isAdded()){
+                ft.hide(this.fragmentFrs);
+            }
             closeKeyboard();
         }else if (page.equals("addPertemuan")){
             if (this.fragmentAP.isAdded()){
@@ -157,6 +171,9 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
             }
             if (this.fragmentAPengumuman.isAdded()){
                 ft.hide(this.fragmentAPengumuman);
+            }
+            if (this.fragmentFrs.isAdded()){
+                ft.hide(this.fragmentFrs);
             }
             closeKeyboard();
         }else if (page.equals("pengumuman")){
@@ -180,6 +197,9 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
             if (this.fragmentAPengumuman.isAdded()){
                 ft.hide(this.fragmentAPengumuman);
             }
+            if (this.fragmentFrs.isAdded()){
+                ft.hide(this.fragmentFrs);
+            }
             closeKeyboard();
         }else if (page.equals("addPengumuman")){
             if (this.fragmentAPengumuman.isAdded()){
@@ -201,6 +221,34 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
             }
             if (this.fragmentAnnouncement.isAdded()){
                 ft.hide(this.fragmentAnnouncement);
+            }
+            if (this.fragmentFrs.isAdded()){
+                ft.hide(this.fragmentFrs);
+            }
+            closeKeyboard();
+        }else if (page.equals("frs")){
+            if (this.fragmentFrs.isAdded()){
+                ft.show(this.fragmentFrs);
+            } else{
+                ft.add(R.id.fragment_container,this.fragmentFrs).addToBackStack(null);
+            }
+            if (this.fragmentL.isAdded()){
+                ft.hide(this.fragmentL);
+            }
+            if (this.fragmentH.isAdded()){
+                ft.hide(this.fragmentH);
+            }
+            if (this.fragmentP.isAdded()){
+                ft.hide(this.fragmentP);
+            }
+            if (this.fragmentAP.isAdded()){
+                ft.hide(this.fragmentAP);
+            }
+            if (this.fragmentAnnouncement.isAdded()){
+                ft.hide(this.fragmentAnnouncement);
+            }
+            if (this.fragmentAPengumuman.isAdded()){
+                ft.hide(this.fragmentAPengumuman);
             }
             closeKeyboard();
         }
@@ -229,7 +277,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
 
     @Override
     public void updateListPertemuan(ArrayList<Pertemuan> pertemuans) {
-
+        fragmentP.updateListPertemuan(pertemuans);
     }
 
     @Override
@@ -243,4 +291,26 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
         GetAcademicYears task = new GetAcademicYears(this.presenter, this);
         task.execute();
     }
+
+    @Override
+    public void setUserInformationAtHome(String role, String name) {
+        this.fragmentH.setUserInformation(role, name);
+    }
+
+    @Override
+    public void runGetUserInfoTask() throws JSONException {
+        GetUserInformationTask task = new GetUserInformationTask(this.presenter, this);
+        task.execute();
+    }
+
+    @Override
+    public void getAppointments() throws JSONException {
+        GetAppointmentsTask task = new GetAppointmentsTask(this.presenter, this);
+        task.execute();
+    }
+
+//    @Override
+//    public void hideAddAppointmentForAdmin() {
+//        this.fragmentP.hideAddAppointment();
+//    }
 }

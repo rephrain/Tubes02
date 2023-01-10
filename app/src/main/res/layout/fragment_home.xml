@@ -76,7 +76,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@string/student"
+                    android:text=""
                     android:textColor="@color/black"
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="135dp"
@@ -103,7 +103,7 @@
                     android:id="@+id/student_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/name"
+                    android:text=""
                     android:textSize="25sp"
                     android:textColor="@color/white"
                     android:textStyle="bold"
@@ -335,14 +335,24 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:gravity="center_horizontal">
-                            <TextView android:layout_width="wrap_content"
+                            android:orientation="vertical">
+                            <TextView android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Pengumuman 1"
+                                android:text="Judul Pengumuman"
+                                android:id="@+id/judul_pengumuman_home"
                                 android:textColor="@color/black"
+                                android:gravity="center"
                                 android:textStyle="bold"
                                 android:textSize="20sp"
+                                android:layout_marginTop="10dp">
+                            </TextView>
+                            <TextView android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Isi Pengumuman ...... "
+                                android:paddingLeft="10dp"
+                                android:id="@+id/isi_pengumuman_home"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
                                 android:layout_marginTop="10dp">
                             </TextView>
                         </LinearLayout>

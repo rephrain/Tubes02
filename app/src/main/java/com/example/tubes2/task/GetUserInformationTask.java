@@ -9,13 +9,10 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.tubes2.IMainActivity;
 import com.example.tubes2.MainPresenter;
 import com.example.tubes2.model.User;
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -25,14 +22,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GetAcademicYears {
-    final String BASE_URL = "https://ifportal.labftis.net/api/v1/academic-years";
+public class GetUserInformationTask {
+    final String BASE_URL = "https://ifportal.labftis.net/api/v1/users/self";
     private MainPresenter presenter;
     private Context context;
     private Gson gson;
     private User user;
 
-    public GetAcademicYears(MainPresenter presenter, Context context){
+    public GetUserInformationTask(MainPresenter presenter, Context context){
         this.presenter = presenter;
         this.gson = new Gson();
         this.context = context;
@@ -48,32 +45,21 @@ public class GetAcademicYears {
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, this.BASE_URL, new JSONObject(), new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                JSONArray resp = new JSONArray();
+                String name = null;
+                String id = null;
                 try {
-                    resp = response.getJSONArray("academic_years");
+                    name = response.getString("name");
+                    id = response.getString("id");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                ArrayList<String> academic_years = new ArrayList<String>();
-                for (int i = 0; i < resp.length(); i++){
-                    try {
-                        academic_years.add(resp.get(i).toString());
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-                Log.d("result array", academic_years.toString());
-//                try {
-//                    Log.d("result", response.getJSONArray("academic_years").toString());
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//                processResult(response.toString());
+                Log.d("result user info", name + " " + id);
+                processResult(id, name);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.d("result", "error " + user.getToken());
+                Log.d("result", "error ");
             }
         })
         {
@@ -85,5 +71,10 @@ public class GetAcademicYears {
             }
         };
         mRequestQueue.add(request);
+    }
+
+    public void processResult(String id, String name){
+        this.presenter.setUserIdName(id, name);
+        this.presenter.setUserInformationAtHome();
     }
 }

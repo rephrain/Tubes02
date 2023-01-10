@@ -26,8 +26,8 @@ public class MainPresenter {
         this.context = context;
     }
 
-    public void addToListPertemuan(Integer id, String judul, String tanggalPertemuan,String waktuPertemuan, String partisipan,String deskripsi){
-        pertemuans.add(new Pertemuan(id, judul, tanggalPertemuan, waktuPertemuan, partisipan, deskripsi));
+    public void addToListPertemuan(String id, String judul, String tanggalPertemuan,String waktuPertemuan,String deskripsi){
+        pertemuans.add(new Pertemuan(id, judul, tanggalPertemuan, waktuPertemuan, deskripsi));
         this.iMainActivity.updateListPertemuan(pertemuans);
     }
 
@@ -44,6 +44,11 @@ public class MainPresenter {
         this.user = user;
         this.iMainActivity.changePage("home");
         this.getAcademicYears();
+        this.iMainActivity.runGetUserInfoTask();
+
+//        if (this.user.getRole().equals("admin")){
+//            this.iMainActivity.hideAddAppointmentForAdmin();
+//        }
     }
 
     public void notifyLoginFailed(){
@@ -58,8 +63,17 @@ public class MainPresenter {
         return this.user;
     }
 
-    public void toggleFav (Pertemuan pertemuan){
-        pertemuan.toggleFavorite();
+    public void setUserIdName(String id, String name){
+        this.user.setId(id);
+        this.user.setName(name);
+    }
+
+    public void setUserInformationAtHome(){
+        this.iMainActivity.setUserInformationAtHome(this.user.getRole(), this.user.getName());
+    }
+
+    public void getAppointments() throws JSONException {
+        this.iMainActivity.getAppointments();
     }
 
     public void callAnnouncementTask(String judul, String[] tags, String content) throws JSONException{
