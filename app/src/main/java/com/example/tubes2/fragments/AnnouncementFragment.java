@@ -64,9 +64,6 @@ public class AnnouncementFragment extends Fragment implements View.OnClickListen
         this.binding = FragmentPengumumanBinding.inflate(inflater);
         this.adapter = new PengumumanAdapter(this,inflater,this.presenter);
         this.binding.lvListPrasyarat.setAdapter(adapter);
-        for (int i=0; i<presenter.getPengumuman().size(); i++){
-            adapter.add(presenter.getPengumuman().get(i));
-        }
         this.getParentFragmentManager().setFragmentResultListener("addToListPengumuman", this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
@@ -113,8 +110,9 @@ public class AnnouncementFragment extends Fragment implements View.OnClickListen
     }
 
     @Override
-    public void updateListPengumuman(ArrayList<Pengumuman> pengumumens) {
-
+    public void updateListPengumuman(ArrayList<Pengumuman> pengumumans) {
+        adapter.setListPengumuman(pengumumans);
+        adapter.notifyDataSetChanged();
     }
 
     @Override
