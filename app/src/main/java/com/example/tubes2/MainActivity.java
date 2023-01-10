@@ -22,9 +22,10 @@ import com.example.tubes2.fragments.HomeFragment;
 import com.example.tubes2.fragments.LoginFragment;
 import com.example.tubes2.fragments.PertemuanFragment;
 import com.example.tubes2.fragments.SemesterFragment;
+import com.example.tubes2.model.Pengumuman;
 import com.example.tubes2.model.Pertemuan;
-import com.example.tubes2.model.User;
 import com.example.tubes2.task.GetAcademicYears;
+import com.example.tubes2.task.PostAnnouncementTask;
 import com.example.tubes2.task.GetAppointmentsTask;
 import com.example.tubes2.task.GetUserInformationTask;
 import com.example.tubes2.task.PostAuthenticateTask;
@@ -323,6 +324,12 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
     }
 
     @Override
+    public void AddAnnouncement(String judul, String[] tags, String content) throws JSONException {
+        PostAnnouncementTask task = new PostAnnouncementTask(this.presenter, this);
+        task.execute(judul,tags,content);
+    }
+
+    @Override
     public void updateListPertemuan(ArrayList<Pertemuan> pertemuans) {
         fragmentP.updateListPertemuan(pertemuans);
     }
@@ -354,6 +361,11 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
     public void getAppointments() throws JSONException {
         GetAppointmentsTask task = new GetAppointmentsTask(this.presenter, this);
         task.execute();
+    }
+
+    @Override
+    public void updateListPengumuman(ArrayList<Pengumuman> pengumumans) {
+        this.fragmentAnnouncement.updateListPengumuman(pengumumans);
     }
 
 //    @Override

@@ -3,6 +3,7 @@ package com.example.tubes2;
 import android.content.Context;
 import android.os.Bundle;
 
+import com.example.tubes2.model.Pengumuman;
 import com.example.tubes2.model.Pertemuan;
 import com.example.tubes2.model.User;
 
@@ -12,9 +13,11 @@ import java.util.ArrayList;
 
 public class MainPresenter {
     protected ArrayList<Pertemuan> pertemuans;
+    protected ArrayList<Pengumuman> pengumumans;
     protected IMainActivity iMainActivity;
     protected Context context;
     private User user;
+    private Pengumuman pengumuman;
     private String page;
 
     public MainPresenter(IMainActivity iMainActivity, Context context){
@@ -72,7 +75,18 @@ public class MainPresenter {
     public void getAppointments() throws JSONException {
         this.iMainActivity.getAppointments();
     }
-//    public void toggleFav (Pertemuan pertemuan){
-//        pertemuan.toggleFavorite();
-//    }
+
+    public void callAnnouncementTask(String judul, String[] tags, String content) throws JSONException{
+        this.iMainActivity.AddAnnouncement(judul,tags,content);
+    }
+
+    public void addedAnnouncement(ArrayList<Pengumuman> pengumumans) {
+        this.pengumumans = pengumumans;
+        this.iMainActivity.changePage("pengumuman");
+        this.iMainActivity.updateListPengumuman(pengumumans);
+    }
+
+    public ArrayList<Pengumuman> getPengumuman(){
+        return this.pengumumans;
+    }
 }

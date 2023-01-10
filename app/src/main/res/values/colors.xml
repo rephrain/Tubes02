@@ -13,4 +13,5 @@
     <color name="bg">#F8F7F3</color>
     <color name="lightgrey">#D4D4D4</color>
     <color name="gray">#808080</color>
+    <color name="bg_grey">#7F7F7F</color>
 </resources>

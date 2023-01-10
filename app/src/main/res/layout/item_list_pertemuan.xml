@@ -6,20 +6,46 @@
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:padding="10dp"
-    android:gravity="center_vertical">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:id="@+id/tv_judul_pertemuan">
-    </TextView>
+    android:padding="15dp"
+    android:gravity="center_vertical"
+    android:background="@drawable/menu"
+    android:backgroundTint="@color/grey"
+    android:elevation="10dp">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="textEnd"
-        android:textSize="20dp"
-        android:id="@+id/tv_tanggal_pertemuan">
+        android:textSize="22sp"
+        android:textColor="@color/darkgrey"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:textStyle="bold"
+        android:id="@+id/tv_judul_pertemuan">
     </TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="15dp"
+            android:paddingBottom="5dp"
+            android:layout_weight="2"
+            android:paddingEnd="15dp"
+            android:text="Tanggal : "
+            android:textSize="18dp">
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="15dp"
+            android:layout_weight="1"
+            android:paddingEnd="15dp"
+            android:textSize="18dp"
+            android:id="@+id/tv_tanggal_pertemuan">
+        </TextView>
+    </LinearLayout>
+
 </LinearLayout>
