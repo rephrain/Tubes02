@@ -83,6 +83,14 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        binding.addPengumuman.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                result.putString("page","addPengumuman");
+                getParentFragmentManager().setFragmentResult("changePage",result);
+            }
+        });
+
 //        drawerLayout = view.findViewById(R.id.drawer_layout);
 //        btMenu = view.findViewById(R.id.bt_menu);
         recyclerView = view.findViewById(R.id.recycle_view);

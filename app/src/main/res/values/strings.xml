@@ -29,8 +29,8 @@
 
     <string name="title_add_pengumuman">Tambah Pengumuman : </string>
     <string name="judul_pengumuman">Judul Pengumuman : </string>
-    <string name="tema_pengumuman">Tema Pengumuman : </string>
-    <string name="tanggal_pengumuman">Tanggal : </string>
+    <string name="tag_pengumuman">Tag Pengumuman : </string>
+    <string name="isi_pengumuman">Isi Pengumuman : </string>
     <string name="upload_pengumuman">Upload</string>
 
     <string name="title_jadwal_dosen">Jadwal Dosen</string>

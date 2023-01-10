@@ -6,13 +6,13 @@ import java.util.ArrayList;
 
 public class Pengumuman {
     String title;
-    String content;
     ArrayList<String> tags;
+    String content;
 
-    public Pengumuman(String title, String content, ArrayList<String> tags){
+    public Pengumuman(String title, ArrayList<String> tags, String content){
         this.title = title;
-        this.content = content;
         this.tags = tags;
+        this.content = content;
     }
     public String getTitle() {
         return title;

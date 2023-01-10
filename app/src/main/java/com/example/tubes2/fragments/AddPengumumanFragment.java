@@ -14,14 +14,15 @@ import com.example.tubes2.MainPresenter;
 import com.example.tubes2.databinding.PengumumanAddBinding;
 import com.example.tubes2.databinding.PertemuanAddBinding;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class AddPengumumanFragment  extends Fragment implements View.OnClickListener{
     private PengumumanAddBinding binding;
 
     String judul;
-    String tema;
-    String tanggalPengumuman;
+    String tags;
+    String content;
 
     MainPresenter presenter;
 
@@ -42,30 +43,29 @@ public class AddPengumumanFragment  extends Fragment implements View.OnClickList
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         this.binding = PengumumanAddBinding.inflate(inflater);
         View view = binding.getRoot();
-        binding.uploadFile.setOnClickListener(this::onClick);
         binding.submit.setOnClickListener(this::onClick);
         return view;
     }
 
     @Override
     public void onClick(View view) {
-        if(view.getId() == binding.uploadFile.getId()){
-
-        }else if(view.getId() == binding.submit.getId()) {
+        if(view.getId() == binding.submit.getId()) {
             Bundle result = new Bundle();
             Bundle newPengumuman = new Bundle();
-            judul = binding.etJudulPengumuman.getText().toString();
-            tema = binding.etTemaPengumuman.getText().toString();
-            tanggalPengumuman = getCurrentDate();
+            judul = binding.judulPengumuman.getText().toString();
+            tags = binding.tagPengumuman.getText().toString();
+            content = binding.isiPengumuman.getText().toString();
             if(judul.trim().equals("")){
-                binding.etJudulPengumuman.setError("Judul Tidak Boleh Kosong");
-            }else if(tema.trim().equals("")){
-                binding.etTemaPengumuman.setError("Tema Tidak Boleh Kosong");
+                binding.judulPengumuman.setError("Judul Pengumuman Tidak Boleh Kosong");
+            }else if(tags.trim().equals("")){
+                binding.tagPengumuman.setError("Tag Pengumuman Tidak Boleh Kosong");
+            }else if(content.trim().equals("")){
+                binding.isiPengumuman.setError("Isi Pengumuman Tidak Boleh Kosong");
             }else{
                 hideKeyboard(view);
                 newPengumuman.putString("judul",judul);
-                newPengumuman.putString("tema",tema);
-                newPengumuman.putString("tanggalPengumuman",tanggalPengumuman);
+                newPengumuman.putString("tags",tags);
+                newPengumuman.putString("content",content);
                 result.putString("page","pengumuman");
                 this.getParentFragmentManager().setFragmentResult("addToListPengumuman",newPengumuman);
                 this.getParentFragmentManager().setFragmentResult("changePage",result);

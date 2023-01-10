@@ -307,12 +307,13 @@
                     android:layout_gravity="left">
                 </TextView>
                 <TextView
-                    android:id="@+id/menu_selengkapnya"
+                    android:id="@+id/add_pengumuman"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.8"
-                    android:text="@string/announcement"
-                    android:textSize="15sp"
+                    android:text="+"
+                    android:textSize="25sp"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
                     android:layout_gravity="center"
                     android:layout_marginEnd="30dp">
