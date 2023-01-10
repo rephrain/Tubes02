@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tubes2.MainPresenter;
 import com.example.tubes2.adapter.DrawerAdapter;
 import com.example.tubes2.R;
 import com.example.tubes2.databinding.FragmentHomeBinding;
@@ -26,6 +27,7 @@ public class HomeFragment extends Fragment {
     ImageView btMenu;
     private RecyclerView recyclerView;
     static ArrayList<String> arrayList = new ArrayList<>();
+    private MainPresenter presenter;
     DrawerAdapter adapter;
 
     public HomeFragment(){
@@ -120,11 +122,17 @@ public class HomeFragment extends Fragment {
         closeDrawer(drawerLayout);
     }
 
-    public static HomeFragment newInstance(String title){
+    public static HomeFragment newInstance(String title, MainPresenter presenter){
         HomeFragment fragmentH = new HomeFragment();
         Bundle args = new Bundle();
         args.putString("title",title);
         fragmentH.setArguments(args);
+        fragmentH.presenter = presenter;
         return fragmentH;
+    }
+
+    public void setUserInformation(String role, String name){
+        binding.role.setText(role);
+        binding.studentName.setText(name);
     }
 }

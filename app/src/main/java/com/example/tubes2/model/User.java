@@ -5,6 +5,8 @@ public class User {
     private String email;
     private String password;
     private String role;
+    private String name;
+    private String id;
 
     public User (String email, String password, String role){
         this.email = email;
@@ -15,5 +17,9 @@ public class User {
     public String getEmail(){return this.email;}
     public String getPassword(){return this.password;}
     public String getRole(){return this.role;}
+    public String getName(){return this.name;}
     public void setToken(String token){this.token = token;}
+    public void setName(String name){this.name = name;}
+    public void setId(String id){this.id = id;}
+
 }
