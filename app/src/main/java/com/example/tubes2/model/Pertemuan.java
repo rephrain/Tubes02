@@ -1,25 +1,23 @@
 package com.example.tubes2.model;
 
 public class Pertemuan {
-    Integer id;
+    String id;
     String judul;
-    String tanggalPertemuan;
-    String waktuPertemuan;
+    String datetimeStart;
+    String datetimeEnd;
     String partisipan;
     String deskripsi;
-    private boolean isFav;
 
-    public Pertemuan(Integer id, String judul, String tanggalPertemuan,String waktuPertemuan, String partisipan, String deskripsi){
+    public Pertemuan(String id, String judul, String datetimeStart,String datetimeEnd, String deskripsi){
         this.id = id;
         this.judul = judul;
-        this.tanggalPertemuan = tanggalPertemuan;
-        this.waktuPertemuan = waktuPertemuan;
-        this.partisipan = partisipan;
+        this.datetimeStart = datetimeStart;
+        this.datetimeEnd = datetimeEnd;
+//        this.partisipan = partisipan;
         this.deskripsi = deskripsi;
-        this.isFav = false;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
@@ -27,12 +25,12 @@ public class Pertemuan {
         return judul;
     }
 
-    public String getWaktuPertemuan() {
-        return waktuPertemuan;
+    public String getDatetimeStart() {
+        return datetimeStart;
     }
 
-    public String getTanggalPertemuan() {
-        return tanggalPertemuan;
+    public String getDatetimeEnd() {
+        return datetimeEnd;
     }
 
     public String getPartisipan() {
@@ -41,14 +39,6 @@ public class Pertemuan {
 
     public String getDeskripsi() {
         return deskripsi;
-    }
-
-    public void toggleFavorite(){
-        this.isFav = !isFav;
-    }
-
-    public boolean getIsFav(){
-        return this.isFav;
     }
 }
 
