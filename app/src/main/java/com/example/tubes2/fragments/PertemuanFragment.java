@@ -48,9 +48,8 @@ public class PertemuanFragment extends Fragment implements View.OnClickListener,
                 String tanggalPertemuan = result.getString("tanggalPertemuan");
                 String waktuPertemuan = result.getString("waktuPertemuan");
                 String partisipan = result.getString("partisipan");
-                String jadwalPartisipan = result.getString("jadwalPartisipan");
                 String deskripsi = result.getString("deskripsi");
-                Pertemuan pertemuan = new Pertemuan(id,judul,tanggalPertemuan,waktuPertemuan,partisipan, jadwalPartisipan, deskripsi);
+                Pertemuan pertemuan = new Pertemuan(id,judul,tanggalPertemuan,waktuPertemuan,partisipan, deskripsi);
                 adapter.add(pertemuan);
 //                presenter.addToListPertemuan(id, judul, tanggalPertemuan, waktuPertemuan, partisipan, deskripsi);
 //                db.insertPertemuan(judul, tanggalPertemuan, waktuPertemuan, partisipan, deskripsi);
