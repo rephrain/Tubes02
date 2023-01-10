@@ -22,6 +22,7 @@ import com.example.tubes2.fragments.PertemuanFragment;
 import com.example.tubes2.model.Pertemuan;
 import com.example.tubes2.model.User;
 import com.example.tubes2.task.GetAcademicYears;
+import com.example.tubes2.task.GetAppointmentsTask;
 import com.example.tubes2.task.GetUserInformationTask;
 import com.example.tubes2.task.PostAuthenticateTask;
 
@@ -224,7 +225,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
 
     @Override
     public void updateListPertemuan(ArrayList<Pertemuan> pertemuans) {
-
+        fragmentP.updateListPertemuan(pertemuans);
     }
 
     @Override
@@ -249,4 +250,15 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
         GetUserInformationTask task = new GetUserInformationTask(this.presenter, this);
         task.execute();
     }
+
+    @Override
+    public void getAppointments() throws JSONException {
+        GetAppointmentsTask task = new GetAppointmentsTask(this.presenter, this);
+        task.execute();
+    }
+
+//    @Override
+//    public void hideAddAppointmentForAdmin() {
+//        this.fragmentP.hideAddAppointment();
+//    }
 }

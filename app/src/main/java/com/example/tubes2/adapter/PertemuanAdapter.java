@@ -78,7 +78,7 @@ public class PertemuanAdapter extends BaseAdapter {
         public void updateView(Pertemuan pertemuan){
             this.pertemuan = pertemuan;
             this.itemListPertemuanBinding.tvJudulPertemuan.setText(this.pertemuan.getJudul());
-            this.itemListPertemuanBinding.tvTanggalPertemuan.setText(this.pertemuan.getTanggalPertemuan());
+            this.itemListPertemuanBinding.tvTanggalPertemuan.setText(this.pertemuan.getDatetimeStart());
         }
     }
 }

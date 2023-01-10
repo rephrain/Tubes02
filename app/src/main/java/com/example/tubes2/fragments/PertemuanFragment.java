@@ -17,6 +17,8 @@ import com.example.tubes2.model.Pertemuan;
 import com.example.tubes2.adapter.PertemuanAdapter;
 import com.example.tubes2.databinding.FragmentPertemuanBinding;
 
+import org.json.JSONException;
+
 import java.util.ArrayList;
 
 public class PertemuanFragment extends Fragment implements View.OnClickListener, InterfacePertemuan {
@@ -40,21 +42,27 @@ public class PertemuanFragment extends Fragment implements View.OnClickListener,
         DataBaseHelper db = new DataBaseHelper(getContext());
         Cursor data = db.lihatDataPertemuan();
         View view = binding.getRoot();
-        this.getParentFragmentManager().setFragmentResultListener("addToListPertemuan", this, new FragmentResultListener() {
-            @Override
-            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-                Integer id = result.getInt("id");
-                String judul= result.getString("judul");
-                String tanggalPertemuan = result.getString("tanggalPertemuan");
-                String waktuPertemuan = result.getString("waktuPertemuan");
-                String partisipan = result.getString("partisipan");
-                String deskripsi = result.getString("deskripsi");
-                Pertemuan pertemuan = new Pertemuan(id,judul,tanggalPertemuan,waktuPertemuan,partisipan, deskripsi);
-                adapter.add(pertemuan);
-//                presenter.addToListPertemuan(id, judul, tanggalPertemuan, waktuPertemuan, partisipan, deskripsi);
-//                db.insertPertemuan(judul, tanggalPertemuan, waktuPertemuan, partisipan, deskripsi);
-            }
-        });
+
+        try {
+            this.presenter.getAppointments();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+//        this.getParentFragmentManager().setFragmentResultListener("addToListPertemuan", this, new FragmentResultListener() {
+//            @Override
+//            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+//                String id = result.getString("id");
+//                String judul= result.getString("judul");
+//                String tanggalPertemuan = result.getString("tanggalPertemuan");
+//                String waktuPertemuan = result.getString("waktuPertemuan");
+//                String partisipan = result.getString("partisipan");
+//                String deskripsi = result.getString("deskripsi");
+//                Pertemuan pertemuan = new Pertemuan(id,judul,tanggalPertemuan,waktuPertemuan,partisipan, deskripsi);
+//                adapter.add(pertemuan);
+////                presenter.addToListPertemuan(id, judul, tanggalPertemuan, waktuPertemuan, partisipan, deskripsi);
+////                db.insertPertemuan(judul, tanggalPertemuan, waktuPertemuan, partisipan, deskripsi);
+//            }
+//        });
         binding.btnAdd.setOnClickListener(this::onClick);
         binding.menuAnnouncement.setOnClickListener(this::onClick);
         binding.menuAppointment.setOnClickListener(this::onClick);
@@ -95,4 +103,8 @@ public class PertemuanFragment extends Fragment implements View.OnClickListener,
     public void resetAddForm() {
 
     }
+
+//    public void hideAddAppointment(){
+//        this.binding.btnAdd.setVisibility(View.INVISIBLE);
+//    }
 }
