@@ -67,12 +67,11 @@ public class AnnouncementFragment extends Fragment implements View.OnClickListen
         this.getParentFragmentManager().setFragmentResultListener("addToListPengumuman", this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-//                String id = result.getString("id");
-//                String judul= result.getString("judul");
-//                String tema = result.getString("tema");
-//                String tanggal = result.getString("tanggalPengumuman");
-//                Pengumuman pengumuman = new Pengumuman(id,judul,tema,tanggal);
-//                adapter.add(pengumuman);
+                String judul = result.getString("judul");
+                String[] tags= result.getStringArray("tags");
+                String content = result.getString("content");
+                Pengumuman pengumuman = new Pengumuman(judul,content,tags);
+                adapter.add(pengumuman);
 //                presenter.addToListPertemuan(id, judul, tanggalPertemuan, waktuPertemuan, partisipan, deskripsi);
 //                db.insertPertemuan(judul, tanggalPertemuan, waktuPertemuan, partisipan, deskripsi);
             }
