@@ -60,6 +60,7 @@
                 android:inputType="text"
                 android:hint="Masukan Judul Pertemuan"
                 android:textColorHint="@color/lightgrey"
+                android:paddingLeft="15dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"/>
             <TextView
@@ -70,18 +71,20 @@
                 android:textSize="20sp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"/>
+
             <Button
                 android:id="@+id/et_partisipan_pertemuan"
+                style="?android:spinnerStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:hint="Partisipan Pertemuan"
-                android:textColorHint="@color/lightgrey"
-                android:textColor="@color/black"
-                style="?android:spinnerStyle"
                 android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp">
-            </Button>
+                android:layout_marginEnd="10dp"
+                android:hint="Partisipan Pertemuan"
+                android:outlineAmbientShadowColor="@color/lightgrey"
+                android:paddingLeft="15dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/lightgrey"
+                android:textSize="15sp"></Button>
 
             <TextView
                 android:layout_width="match_parent"
@@ -109,6 +112,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
+                android:layout_marginTop="5dp"
                 android:hint="Tanggal Pertemuan"
                 android:textColorHint="@color/lightgrey"
                 style="?android:spinnerStyle"
@@ -140,12 +144,13 @@
                 android:id="@+id/et_deskripsi_pertemuan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="15dp"
                 android:importantForAutofill="no"
                 android:inputType="text"
                 android:hint="Masukkan Deskripsi Pertemuan"
                 android:textColorHint="@color/lightgrey"
                 android:layout_marginStart="10dp"
+                android:paddingLeft="15dp"
                 android:layout_marginEnd="10dp"/>
         </LinearLayout>
         <Button
