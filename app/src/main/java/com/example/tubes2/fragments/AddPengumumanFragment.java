@@ -68,14 +68,14 @@ public class AddPengumumanFragment  extends Fragment implements View.OnClickList
                 binding.isiPengumuman.setError("Isi Pengumuman Tidak Boleh Kosong");
             }else{
                 hideKeyboard(view);
+                String[] tag = tags.split(",",5);
                 newPengumuman.putString("judul",judul);
-                newPengumuman.putString("tags",tags);
+                newPengumuman.putStringArray("tags",tag);
                 newPengumuman.putString("content",content);
                 result.putString("page","pengumuman");
                 this.getParentFragmentManager().setFragmentResult("addToListPengumuman",newPengumuman);
                 this.getParentFragmentManager().setFragmentResult("changePage",result);
                 try {
-                    String[] tag = tags.split(",",5);
                     this.presenter.callAnnouncementTask(this.judul,tag,this.content);
                 } catch (JSONException e) {
                     e.printStackTrace();
