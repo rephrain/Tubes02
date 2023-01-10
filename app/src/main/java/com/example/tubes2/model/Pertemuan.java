@@ -6,17 +6,15 @@ public class Pertemuan {
     String tanggalPertemuan;
     String waktuPertemuan;
     String partisipan;
-    String jadwalPartisipan;
     String deskripsi;
     private boolean isFav;
 
-    public Pertemuan(Integer id, String judul, String tanggalPertemuan,String waktuPertemuan, String partisipan, String jadwalPartisipan, String deskripsi){
+    public Pertemuan(Integer id, String judul, String tanggalPertemuan,String waktuPertemuan, String partisipan, String deskripsi){
         this.id = id;
         this.judul = judul;
         this.tanggalPertemuan = tanggalPertemuan;
         this.waktuPertemuan = waktuPertemuan;
         this.partisipan = partisipan;
-        this.jadwalPartisipan = jadwalPartisipan;
         this.deskripsi = deskripsi;
         this.isFav = false;
     }
@@ -38,10 +36,6 @@ public class Pertemuan {
     }
 
     public String getPartisipan() {
-        return partisipan;
-    }
-
-    public String getJadwalPartisipan() {
         return partisipan;
     }
 
