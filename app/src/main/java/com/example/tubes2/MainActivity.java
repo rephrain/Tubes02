@@ -22,6 +22,7 @@ import com.example.tubes2.fragments.PertemuanFragment;
 import com.example.tubes2.model.Pertemuan;
 import com.example.tubes2.model.User;
 import com.example.tubes2.task.GetAcademicYears;
+import com.example.tubes2.task.GetUserInformationTask;
 import com.example.tubes2.task.PostAuthenticateTask;
 
 import org.json.JSONException;
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
         this.presenter = new MainPresenter(this, this);
 
         fragmentL = LoginFragment.newInstance("Fragment Login", this.presenter);
-        fragmentH = HomeFragment.newInstance("Fragment Home");
+        fragmentH = HomeFragment.newInstance("Fragment Home", this.presenter);
         fragmentP = PertemuanFragment.newInstance(presenter);
         fragmentAP = AddPertemuanFragment.newInstance("Fragment Add Pertemuan", presenter);
         fragmentAnnouncement = AnnouncementFragment.newInstance(presenter);
@@ -235,6 +236,17 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
     @Override
     public void getAcademicYears() throws JSONException {
         GetAcademicYears task = new GetAcademicYears(this.presenter, this);
+        task.execute();
+    }
+
+    @Override
+    public void setUserInformationAtHome(String role, String name) {
+        this.fragmentH.setUserInformation(role, name);
+    }
+
+    @Override
+    public void runGetUserInfoTask() throws JSONException {
+        GetUserInformationTask task = new GetUserInformationTask(this.presenter, this);
         task.execute();
     }
 }

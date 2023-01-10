@@ -41,6 +41,7 @@ public class MainPresenter {
         this.user = user;
         this.iMainActivity.changePage("home");
         this.getAcademicYears();
+        this.iMainActivity.runGetUserInfoTask();
     }
 
     public void notifyLoginFailed(){
@@ -53,6 +54,15 @@ public class MainPresenter {
 
     public User getUser(){
         return this.user;
+    }
+
+    public void setUserIdName(String id, String name){
+        this.user.setId(id);
+        this.user.setName(name);
+    }
+
+    public void setUserInformationAtHome(){
+        this.iMainActivity.setUserInformationAtHome(this.user.getRole(), this.user.getName());
     }
 
     public void toggleFav (Pertemuan pertemuan){
