@@ -1,32 +1,37 @@
 package com.example.tubes2.model;
 
+import android.nfc.Tag;
+
+import java.util.ArrayList;
+
 public class Pengumuman {
-    Integer id;
-    String judul;
-    String tema;
-    String tanggal;
-    private boolean isFav;
+    String title;
+    String content;
+    ArrayList<String> tags;
 
-    public Pengumuman(Integer id, String judul, String tema, String tanggal){
-        this.id = id;
-        this.judul = judul;
-        this.tema = tema;
-        this.tanggal = tanggal;
-        this.isFav = false;
+    public Pengumuman(String title, String content, ArrayList<String> tags){
+        this.title = title;
+        this.content = content;
+        this.tags = tags;
     }
-    public Integer getId() {
-        return id;
+    public String getTitle() {
+        return title;
     }
 
-    public String getJudul() {
-        return judul;
+    public String getContent() {
+        return content;
     }
 
-    public String getTema() { return tema; }
+    public ArrayList<String> getTags() {
+        return tags;
+    }
+}
+class Tags{
+    String announcement_id;
+    String tag_id;
 
-    public String getTanggal() { return tanggal; }
-
-    public boolean getIsFav(){
-        return this.isFav;
+    public Tags(String announcement_id, String tag_id){
+        this.announcement_id = announcement_id;
+        this.tag_id = tag_id;
     }
 }

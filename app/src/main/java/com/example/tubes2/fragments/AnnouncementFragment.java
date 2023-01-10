@@ -19,6 +19,7 @@ import com.example.tubes2.adapter.PertemuanAdapter;
 import com.example.tubes2.databinding.FragmentPengumumanBinding;
 import com.example.tubes2.databinding.FragmentPertemuanBinding;
 import com.example.tubes2.model.Pengumuman;
+import com.example.tubes2.model.Pertemuan;
 
 import java.util.ArrayList;
 
@@ -38,10 +39,23 @@ public class AnnouncementFragment extends Fragment implements View.OnClickListen
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         this.binding = FragmentPengumumanBinding.inflate(inflater);
-        this.adapter = new PengumumanAdapter(this, inflater, this.presenter);
+        this.adapter = new PengumumanAdapter(this,inflater,this.presenter);
         this.binding.lvListPrasyarat.setAdapter(adapter);
-        DataBaseHelper db = new DataBaseHelper(getContext());
-        Cursor data = db.lihatDataPertemuan();
+        this.getParentFragmentManager().setFragmentResultListener("addToListPengumuman", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+//                String id = result.getString("id");
+//                String judul= result.getString("judul");
+//                String tema = result.getString("tema");
+//                String tanggal = result.getString("tanggalPengumuman");
+//                Pengumuman pengumuman = new Pengumuman(id,judul,tema,tanggal);
+//                adapter.add(pengumuman);
+//                presenter.addToListPertemuan(id, judul, tanggalPertemuan, waktuPertemuan, partisipan, deskripsi);
+//                db.insertPertemuan(judul, tanggalPertemuan, waktuPertemuan, partisipan, deskripsi);
+            }
+        });
+//        DataBaseHelper db = new DataBaseHelper(getContext());
+//        Cursor data = db.lihatDataPertemuan();
         View view = binding.getRoot();
         binding.menuAnnouncement.setOnClickListener(this::onClick);
         binding.menuAppointment.setOnClickListener(this::onClick);
