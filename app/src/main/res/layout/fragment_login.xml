@@ -142,12 +142,14 @@
         </TextView>
     </LinearLayout>
     <TextView
+        android:background="@drawable/wave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:text="@string/watermark"
         android:layout_marginTop="40dp"
         android:textSize="18sp"
+        android:elevation="25dp"
         android:textColor="#c0c0c0"
         android:textStyle="bold">
     </TextView>
