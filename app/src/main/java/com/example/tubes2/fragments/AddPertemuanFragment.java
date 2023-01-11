@@ -58,6 +58,7 @@ public class AddPertemuanFragment extends Fragment implements View.OnClickListen
         binding.btnSimpan.setOnClickListener(this::onClick);
         binding.btnTanggalPertemuan.setOnClickListener(this::onClick);
         binding.etWaktuPertemuan.setOnClickListener(this::onClick);
+        binding.etWaktuAkhir.setOnClickListener(this::onClick);
         binding.etPartisipanPertemuan.setOnClickListener(this::onClick);
         binding.btnBack.setOnClickListener(this::onClick);
         return view;
@@ -94,6 +95,18 @@ public class AddPertemuanFragment extends Fragment implements View.OnClickListen
                     binding.etWaktuPertemuan.setText(hour+":"+minute);
                 }
             }, hour, minute, true);
+            timePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            timePickerDialog.show();
+        }else if(view.getId() == binding.etWaktuAkhir.getId()){
+            Calendar calendar = Calendar.getInstance();
+            final int jam = calendar.get(Calendar.HOUR_OF_DAY);
+            final int menit = calendar.get(Calendar.MINUTE);
+            TimePickerDialog timePickerDialog = new TimePickerDialog(AddPertemuanFragment.this.getActivity(),  new TimePickerDialog.OnTimeSetListener() {
+                @Override
+                public void onTimeSet(TimePicker timePicker, int jam, int menit) {
+                    binding.etWaktuPertemuan.setText(jam+":"+menit);
+                }
+            }, jam, menit, true);
             timePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             timePickerDialog.show();
         }
