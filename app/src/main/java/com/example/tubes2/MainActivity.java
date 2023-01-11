@@ -384,8 +384,8 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
 
     @Override
     public void AddAnnouncement(String judul, String[] tags, String content) throws JSONException {
-        PostAnnouncementTask task = new PostAnnouncementTask(this.presenter, this);
-        task.execute(judul,tags,content);
+//        PostAnnouncementTask task = new PostAnnouncementTask(this.presenter, this);
+//        task.execute(judul,tags,content);
     }
 
     @Override

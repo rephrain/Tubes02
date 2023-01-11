@@ -41,7 +41,7 @@ public class PostAnnouncementTask {
     }
 
     public void execute(String title, String[] tags, String content) throws JSONException {
-        this.pengumumans.add(new Pengumuman(title,content,tags));
+//        this.pengumumans.add(new Pengumuman(title,content,tags));
         JSONObject json = new JSONObject(this.gson.toJson(pengumumans));
         Log.d("json", json.toString());
         this.callVolley(json);
@@ -89,6 +89,6 @@ public class PostAnnouncementTask {
     }
 
     public void processResult(String id, String title, String content, String updated_at) throws JSONException {
-        this.presenter.addedAnnouncement(this.pengumumans);
+//        this.presenter.addedAnnouncement(this.pengumumans);
     }
 }

@@ -1,9 +1,12 @@
 package com.example.tubes2.adapter;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.tubes2.MainPresenter;
 import com.example.tubes2.databinding.ItemListPengumumanBinding;
@@ -54,17 +57,15 @@ public class PengumumanAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        ViewHolder viewHolder;
-        if (view == null){
-            binding = ItemListPengumumanBinding.inflate(this.inflater);
-            view = binding.getRoot();
-            viewHolder = new ViewHolder(binding);
-            view.setTag(viewHolder);
-        }
-        else {
-            viewHolder = (ViewHolder) view.getTag();
-        }
-        viewHolder.updateView(this.getItem(i));
+        binding = ItemListPengumumanBinding.inflate(this.inflater);
+        view = binding.getRoot();
+        binding.tvJudulPengumuman.setText(this.listPengumuman.get(i).getTitle());
+//        String tags = "";
+//        for(int j=0; j<listPengumuman.get(i).getTags().size(); j++){
+//            tags += listPengumuman.get(i).getTags()+",";
+//        }
+//        tags = tags.substring(0,tags.length()-1);
+        binding.tvIsiPengumuman.setText("tes");
         return view;
     }
 
@@ -78,8 +79,8 @@ public class PengumumanAdapter extends BaseAdapter {
 
         public void updateView(Pengumuman pengumuman){
             this.pengumuman = pengumuman;
-            this.binding.tvJudulPengumuman.setText(pengumuman.getTitle());
-            this.binding.tvIsiPengumuman.setText(pengumuman.getContent());
+//            this.binding.tvJudulPengumuman.setText(pengumuman.getTitle());
+//            this.binding.tvIsiPengumuman.setText(pengumuman.getContent());
         }
     }
 }

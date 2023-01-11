@@ -3,6 +3,7 @@ package com.example.tubes2.fragments;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.icu.text.RelativeDateTimeFormatter;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,9 +48,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AnnouncementFragment extends Fragment implements View.OnClickListener, InterfacePengumuman {
+    String BASE_URL = "https://ifportal.labftis.net/api/v1/announcements";
     private FragmentPengumumanBinding binding;
     private PengumumanAdapter adapter;
     private MainPresenter presenter;
+    ArrayList<Pengumuman> pengumuman;
 
     public AnnouncementFragment(){}
 
@@ -64,14 +67,45 @@ public class AnnouncementFragment extends Fragment implements View.OnClickListen
         this.binding = FragmentPengumumanBinding.inflate(inflater);
         this.adapter = new PengumumanAdapter(this,inflater,this.presenter);
         this.binding.lvListPrasyarat.setAdapter(adapter);
+
+        BASE_URL += "?filter[title]="+binding.btnSearch.getQuery().toString();
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+        StringRequest stringRequest = new StringRequest(Request.Method.GET,BASE_URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    JSONArray jsonArray = jsonObject.getJSONArray("data");
+                    Gson gson = new Gson();
+                    pengumuman = gson.fromJson(jsonArray.toString(),new TypeToken<ArrayList<Pengumuman>>(){}.getType());
+                    adapter.setListPengumuman(pengumuman);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getActivity(),"No connection",Toast.LENGTH_LONG).show();
+            }
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> header = new HashMap<String, String>();
+                header.put("Authorization", "Bearer " + presenter.getUser().getToken());
+                return header;
+            }
+        };
+        requestQueue.add(stringRequest);
+
         this.getParentFragmentManager().setFragmentResultListener("addToListPengumuman", this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-                String judul = result.getString("judul");
-                String[] tags= result.getStringArray("tags");
-                String content = result.getString("content");
-                Pengumuman pengumuman = new Pengumuman(judul,content,tags);
-                adapter.add(pengumuman);
+//                String judul = result.getString("judul");
+//                String[] tags= result.getStringArray("tags");
+//                String content = result.getString("content");
+//                Pengumuman pengumuman = new Pengumuman(judul,content,tags);
+//                adapter.add(pengumuman);
 //                presenter.addToListPertemuan(id, judul, tanggalPertemuan, waktuPertemuan, partisipan, deskripsi);
 //                db.insertPertemuan(judul, tanggalPertemuan, waktuPertemuan, partisipan, deskripsi);
             }
@@ -110,8 +144,8 @@ public class AnnouncementFragment extends Fragment implements View.OnClickListen
 
     @Override
     public void updateListPengumuman(ArrayList<Pengumuman> pengumumans) {
-        adapter.setListPengumuman(pengumumans);
-        adapter.notifyDataSetChanged();
+//        adapter.setListPengumuman(pengumumans);
+//        adapter.notifyDataSetChanged();
     }
 
     @Override
