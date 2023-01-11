@@ -35,6 +35,8 @@ public class MainPresenter {
     public void setStudent(String npm, String initialYear){
         Student student = new Student(this.getUser().getEmail(), this.getUser().getPassword(), this.getUser().getRole(), npm, initialYear);
         this.student = student;
+        Log.d("from presenter", this.student.getNpm() + " " + this.student.getInitialYear());
+        this.setUserInformationAtHome();
     }
 
     public Student getStudent(){return this.student;}
