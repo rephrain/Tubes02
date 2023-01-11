@@ -68,6 +68,10 @@ public class MainPresenter {
         this.iMainActivity.notifyLoginFailed();
     }
 
+    public void notifyLoginFailed1(){
+        this.iMainActivity.notifyLoginFailed1();
+    }
+
     public void getAcademicYears() throws JSONException {
         this.iMainActivity.getAcademicYears();
     }

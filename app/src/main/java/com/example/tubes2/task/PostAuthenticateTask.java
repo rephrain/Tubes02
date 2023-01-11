@@ -4,6 +4,7 @@ import android.app.DownloadManager;
 import android.content.Context;
 import android.util.Log;
 
+import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -59,7 +60,12 @@ public class PostAuthenticateTask {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.d("result", "error");
-                presenter.notifyLoginFailed();
+                if(error instanceof NoConnectionError){
+                    presenter.notifyLoginFailed1();
+                }else{
+                    presenter.notifyLoginFailed();
+                }
+
             }
         });
         mRequestQueue.add(request);

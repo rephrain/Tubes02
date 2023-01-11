@@ -14,6 +14,9 @@ public interface IMainActivity {
     void AddAnnouncement(String judul, String[] tags, String content) throws JSONException;
     void updateListPertemuan(ArrayList<Pertemuan> pertemuans);
     void notifyLoginFailed();
+
+    void notifyLoginFailed1();
+
     void getAcademicYears() throws JSONException;
     void setUserInformationAtHome(String role, String nama);
     void runGetUserInfoTask() throws JSONException;
