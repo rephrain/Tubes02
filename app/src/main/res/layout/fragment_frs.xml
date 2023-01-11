@@ -20,6 +20,7 @@
             android:layout_margin="10dp"
             android:background="@color/white"
             android:dividerHeight="10dp"
+            android:divider="#00000000"
             android:id="@+id/lv_listPrasyarat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
