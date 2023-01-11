@@ -84,12 +84,6 @@ public class GetAppointmentsTask {
                     }
 //                    Pertemuan pertemuan = null;
                     try {
-//                        pertemuan = new Pertemuan(obj.getString("id"),
-//                                obj.getString("title"),
-//                                obj.getString("start_datetime"),
-//                                obj.getString("end_datetime"),
-//                                obj.getString("description")
-//                        );
                         presenter.addToListPertemuan(obj.getString("id"),
                                 obj.getString("title"),
                                 obj.getString("start_datetime"),
