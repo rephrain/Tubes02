@@ -10,6 +10,12 @@ public class Student extends User{
         this.initial_year = initial_year;
     }
 
+    public Student() {
+        super(new String(),new String(),new String());
+        this.initial_year = new String();
+        this.npm = new String();
+    }
+
     public String getNpm (){return this.npm;}
     public String getInitialYear (){return this.initial_year;}
 }

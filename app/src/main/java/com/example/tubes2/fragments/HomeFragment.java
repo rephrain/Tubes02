@@ -142,5 +142,12 @@ public class HomeFragment extends Fragment {
     public void setUserInformation(String role, String name){
         binding.role.setText(role);
         binding.studentName.setText(name);
+        if (this.presenter.getUser().getRole().equals("lecturer") || this.presenter.getUser().getRole().equals("admin")){
+            this.binding.npmTitle.setVisibility(View.GONE);
+            this.binding.npm.setVisibility(View.GONE);
+        }
+        else if (this.presenter.getUser().getRole().equals("student")){
+            this.binding.npm.setText(presenter.getStudent().getNpm());
+        }
     }
 }
