@@ -117,21 +117,41 @@
                 android:textColorHint="@color/lightgrey"
                 style="?android:spinnerStyle"
                 android:textColor="@color/black"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp">
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp">
             </Button>
-            <Button
-                android:id="@+id/et_waktu_pertemuan"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:hint="Waktu Pertemuan"
-                android:textColorHint="@color/lightgrey"
-                style="?android:spinnerStyle"
-                android:textColor="@color/black"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp">
-            </Button>
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/et_waktu_pertemuan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:hint="Waktu Pertemuan"
+                    android:textColorHint="@color/lightgrey"
+                    style="?android:spinnerStyle"
+                    android:textColor="@color/black"
+                    android:layout_weight="2"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp">
+                </Button>
+                <Button
+                    android:id="@+id/et_waktu_akhir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:layout_weight="2"
+                    android:hint="Waktu Akhir"
+                    android:textColorHint="@color/lightgrey"
+                    style="?android:spinnerStyle"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp">
+                </Button>
+            </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
