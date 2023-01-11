@@ -62,6 +62,7 @@ public class GetAcademicYears {
                         e.printStackTrace();
                     }
                 }
+                presenter.saveAcademicYear(academic_years);
                 Log.d("result array", academic_years.toString());
 //                try {
 //                    Log.d("result", response.getJSONArray("academic_years").toString());
