@@ -78,14 +78,14 @@ public class GetUserInformationTask {
     }
 
     public void callVolleyStudent(String id) throws JSONException {
-        String urlStudent = "http://ifportal.labftis.net/api/v1/student/id/";
+        String urlStudent = "https://ifportal.labftis.net/api/v1/students/id/";
         RequestQueue mRequestQueue1 = Volley.newRequestQueue(this.context);
 
         JSONObject json = new JSONObject();
         json.put("id", id);
         Log.d("json id", json.toString());
 
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, urlStudent + id, new JSONObject(), new Response.Listener<JSONObject>() {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, urlStudent + id, json, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 String npm = null;
@@ -97,12 +97,13 @@ public class GetUserInformationTask {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+                Log.d("npm init year", npm + " " + initialYear);
                 presenter.setStudent(npm, initialYear);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.d("result", "error student");
+                Log.d("result error", error.toString());
             }
         })
         {
@@ -120,6 +121,7 @@ public class GetUserInformationTask {
         this.presenter.setUserIdName(id, name);
         if (this.user.getRole().equals("student")){
             callVolleyStudent(id);
+            Log.d("id dari process result", id);
         }
         this.presenter.setUserInformationAtHome();
     }
