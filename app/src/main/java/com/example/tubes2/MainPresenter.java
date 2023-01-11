@@ -6,6 +6,7 @@ import android.os.Bundle;
 import com.example.tubes2.model.Pengumuman;
 import com.example.tubes2.model.Pertemuan;
 import com.example.tubes2.model.User;
+import com.example.tubes2.task.GetAcademicYears;
 
 import org.json.JSONException;
 
@@ -17,7 +18,8 @@ public class MainPresenter {
     protected IMainActivity iMainActivity;
     protected Context context;
     private User user;
-//    private Pengumuman pengumuman;
+    private Pengumuman pengumuman;
+    private ArrayList<String> academicYears;
     private String page;
 
     public MainPresenter(IMainActivity iMainActivity, Context context){
@@ -84,6 +86,13 @@ public class MainPresenter {
         this.pengumumans = pengumumans;
         this.iMainActivity.changePage("pengumuman");
         this.iMainActivity.updateListPengumuman(pengumumans);
+    }
+    public void saveAcademicYear(ArrayList<String> academicYears){
+        this.academicYears = academicYears;
+    }
+
+    public ArrayList<String> getAcademicYear(){
+        return this.academicYears = academicYears;
     }
 
     public ArrayList<Pengumuman> getPengumuman(){

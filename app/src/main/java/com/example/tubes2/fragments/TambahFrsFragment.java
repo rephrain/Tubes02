@@ -8,32 +8,33 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 
 import com.example.tubes2.MainPresenter;
-import com.example.tubes2.adapter.FrsAdapter;
 import com.example.tubes2.adapter.SemesterAdapter;
-import com.example.tubes2.databinding.FragmentFrsBinding;
+import com.example.tubes2.adapter.TambahFrsAdapter;
 import com.example.tubes2.databinding.FragmentSemesterBinding;
+import com.example.tubes2.databinding.FragmentTambahFrsBinding;
 
-public class SemesterFragment extends Fragment implements View.OnClickListener{
-    private FragmentSemesterBinding binding;
-    private SemesterAdapter adapter;
+public class TambahFrsFragment extends Fragment implements View.OnClickListener {
+    private FragmentTambahFrsBinding binding;
+    private TambahFrsAdapter adapter;
     private MainPresenter presenter;
 
-    public SemesterFragment(){}
+    public TambahFrsFragment() {
+    }
 
-    public static SemesterFragment newInstance(MainPresenter presenter){
-        SemesterFragment fragment = new SemesterFragment();
+    public static TambahFrsFragment newInstance(MainPresenter presenter) {
+        TambahFrsFragment fragment = new TambahFrsFragment();
         fragment.presenter = presenter;
         return fragment;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        this.binding = FragmentSemesterBinding.inflate(inflater);
-        this.adapter = new SemesterAdapter(this, inflater, this.presenter);
+        this.binding = FragmentTambahFrsBinding.inflate(inflater);
+        this.adapter = new TambahFrsAdapter(this, inflater, this.presenter);
         this.binding.lvListMatkul.setAdapter(adapter);
         View view = binding.getRoot();
         binding.btnBack.setOnClickListener(this::onClick);
-        binding.titleSemester.setOnClickListener(this::onClick);
+        binding.submit.setOnClickListener(this::onClick);
         return view;
     }
 
@@ -42,10 +43,10 @@ public class SemesterFragment extends Fragment implements View.OnClickListener{
 
         Bundle result = new Bundle();
         if(view.getId() == binding.btnBack.getId()) {
-            result.putString("page", "frs");
+            result.putString("page", "semester");
             this.getParentFragmentManager().setFragmentResult("changePage", result);
-        }else if(view.getId() == binding.titleSemester.getId()) {
-            result.putString("page", "prasyarat");
+        }else if(view.getId() == binding.submit.getId()) {
+            result.putString("page", "semester");
             this.getParentFragmentManager().setFragmentResult("changePage", result);
         }
     }

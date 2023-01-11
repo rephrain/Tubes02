@@ -47,6 +47,6 @@
     <string name="role">Role : </string>
     <string name="role_hint">E.g. admin</string>
 
-    <string name="prasyarat">Prasyarat</string>
+    <string name="prasyarat">Prasyarat : </string>
     <string name="title_add_matkul">Tambah FRS</string>
 </resources>
