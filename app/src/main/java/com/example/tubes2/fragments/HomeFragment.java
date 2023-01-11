@@ -85,13 +85,13 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        binding.addPengumuman.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                result.putString("page","addPengumuman");
-                getParentFragmentManager().setFragmentResult("changePage",result);
-            }
-        });
+//        binding.addPengumuman.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                result.putString("page","addPengumuman");
+//                getParentFragmentManager().setFragmentResult("changePage",result);
+//            }
+//        });
 
         binding.menuFrs.setOnClickListener(new View.OnClickListener() {
             @Override
