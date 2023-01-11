@@ -32,6 +32,7 @@ public class AddPertemuanFragment extends Fragment implements View.OnClickListen
     String judul;
     String tanggalPertemuan;
     String waktuPertemuan;
+    String waktuAkhir;
     String partisipan;
     String addPartisipan;
     String deskripsi;
@@ -104,7 +105,7 @@ public class AddPertemuanFragment extends Fragment implements View.OnClickListen
             TimePickerDialog timePickerDialog = new TimePickerDialog(AddPertemuanFragment.this.getActivity(),  new TimePickerDialog.OnTimeSetListener() {
                 @Override
                 public void onTimeSet(TimePicker timePicker, int jam, int menit) {
-                    binding.etWaktuPertemuan.setText(jam+":"+menit);
+                    binding.etWaktuAkhir.setText(jam+":"+menit);
                 }
             }, jam, menit, true);
             timePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -128,6 +129,8 @@ public class AddPertemuanFragment extends Fragment implements View.OnClickListen
             }
             else if(waktuPertemuan.trim().equals("")){
                 binding.etWaktuPertemuan.setError("Waktu Pertemuan Tidak Boleh Kosong");
+            }else if(waktuAkhir.trim().equals("")){
+                binding.etWaktuAkhir.setError("Waktu Akhir Tidak Boleh Kosong");
             }
 //            else if(partisipan.trim().equals("")){
 //                binding.etPartisipanPertemuan.setError("Partisipan Tidak Boleh Kosong");
@@ -141,6 +144,7 @@ public class AddPertemuanFragment extends Fragment implements View.OnClickListen
                 newPertemuan.putString("judul",judul);
                 newPertemuan.putString("tanggalPertemuan",tanggalPertemuan);
                 newPertemuan.putString("waktuPertemuan",waktuPertemuan);
+                newPertemuan.putString("waktuAkhir",waktuPertemuan);
                 newPertemuan.putString("partisipan",partisipan);
                 newPertemuan.putString("deskripsi",deskripsi);
                 result.putString("page","pertemuan");
