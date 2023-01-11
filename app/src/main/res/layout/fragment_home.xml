@@ -118,7 +118,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Fakultas"
+                        android:text="@string/fakultas"
                         android:textColor="@color/white"
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
@@ -127,7 +127,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Teknik Informasi dan Sains"
+                        android:text="@string/namafakultas"
                         android:layout_weight="0.5"
                         android:layout_margin="10dp"
                         android:textColor="@color/grey">
@@ -141,7 +141,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Program Studi"
+                        android:text="@string/programstudi"
                         android:textColor="@color/white"
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
@@ -150,7 +150,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Informatika"
+                        android:text="@string/namaprogram"
                         android:layout_weight="0.5"
                         android:layout_margin="10dp"
                         android:textColor="@color/grey">
@@ -164,7 +164,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="NPM"
+                        android:text="@string/npm"
                         android:textColor="@color/white"
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
@@ -300,7 +300,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Pengumuman"
+                    android:text="@string/pagepengumuman"
                     android:textStyle="bold"
                     android:textSize="24sp"
                     android:textColor="@color/black"
@@ -311,7 +311,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.8"
-                    android:text="+"
+                    android:text="@string/tambah"
                     android:textSize="25sp"
                     android:textAlignment="center"
                     android:textColor="@color/black"
@@ -338,7 +338,7 @@
                             android:orientation="vertical">
                             <TextView android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Judul Pengumuman"
+                                android:text="@string/judul_pengumuman"
                                 android:id="@+id/judul_pengumuman_home"
                                 android:textColor="@color/black"
                                 android:gravity="center"
@@ -348,7 +348,7 @@
                             </TextView>
                             <TextView android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Isi Pengumuman ...... "
+                                android:text=""
                                 android:paddingLeft="10dp"
                                 android:id="@+id/isi_pengumuman_home"
                                 android:textColor="@color/black"

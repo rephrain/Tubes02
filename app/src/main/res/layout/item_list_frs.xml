@@ -15,7 +15,6 @@
         android:textSize="22dp"
         android:textStyle="bold"
         android:textColor="@color/darkgrey"
-        android:text="dsjfakjdfsa"
         android:id="@+id/nama_semester"
         android:paddingStart="15dp"
         android:paddingEnd="15dp"
