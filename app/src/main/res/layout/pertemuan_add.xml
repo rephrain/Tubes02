@@ -72,8 +72,22 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"/>
 
-            <Button
-                android:id="@+id/et_partisipan_pertemuan"
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="16dp"-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">-->
+
+<!--                <AutoCompleteTextView-->
+<!--                    android:id="@+id/spinner_partisipan_pertemuan"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:inputType="none"/>-->
+
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+            <Spinner
+                android:id="@+id/spinner_partisipan_pertemuan"
                 style="?android:spinnerStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -84,7 +98,7 @@
                 android:paddingLeft="15dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/lightgrey"
-                android:textSize="15sp"></Button>
+                android:textSize="15sp"></Spinner>
 
             <TextView
                 android:layout_width="match_parent"

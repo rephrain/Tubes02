@@ -54,16 +54,20 @@ public class GetAcademicYears {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                ArrayList<String> academic_years = new ArrayList<String>();
+//                ArrayList<String> academic_years = new ArrayList<String>();
                 for (int i = 0; i < resp.length(); i++){
                     try {
-                        academic_years.add(resp.get(i).toString());
+                        Log.d("show year", resp.get(i).toString());
+//                        Log.d("show year", (String) resp.get(i));
+                        Log.d("show year", String.valueOf(resp.get(i)));
+//                        academic_years.add(resp.get(i).toString());
+                        presenter.addToListAcademicYears(String.valueOf(resp.get(i)));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
-                presenter.saveAcademicYear(academic_years);
-                Log.d("result array", academic_years.toString());
+//                presenter.saveAcademicYear(academic_years);
+//                Log.d("result array", academic_years.toString());
 //                try {
 //                    Log.d("result", response.getJSONArray("academic_years").toString());
 //                } catch (JSONException e) {

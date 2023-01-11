@@ -11,17 +11,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentResultListener;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.tubes2.MainPresenter;
+import com.example.tubes2.adapter.UserForPartisipanAdapter;
 import com.example.tubes2.databinding.PertemuanAddBinding;
+import com.example.tubes2.databinding.UserForPartisipanBinding;
 
 import org.json.JSONException;
 
@@ -38,6 +42,7 @@ public class AddPertemuanFragment extends Fragment implements View.OnClickListen
     String partisipan;
     String addPartisipan;
     String deskripsi;
+    private UserForPartisipanAdapter adapter;
 
     MainPresenter presenter;
 
@@ -58,11 +63,17 @@ public class AddPertemuanFragment extends Fragment implements View.OnClickListen
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         this.binding = PertemuanAddBinding.inflate(inflater);
         View view = binding.getRoot();
+
+//        users = new ArrayAdapter<String>(this, UserForPartisipanBinding.inflate(getLayoutInflater()), this.presenter.getUsers());
+
+        this.adapter = new UserForPartisipanAdapter(this, inflater, this.presenter);
+        binding.spinnerPartisipanPertemuan.setAdapter(adapter);
+
         binding.btnSimpan.setOnClickListener(this::onClick);
         binding.btnTanggalPertemuan.setOnClickListener(this::onClick);
         binding.etWaktuPertemuan.setOnClickListener(this::onClick);
         binding.etWaktuAkhir.setOnClickListener(this::onClick);
-        binding.etPartisipanPertemuan.setOnClickListener(this::onClick);
+//        binding.spinnerPartisipanPertemuan.setOnClickListener(this::onClick);
         binding.btnBack.setOnClickListener(this::onClick);
 
         try {
@@ -120,7 +131,7 @@ public class AddPertemuanFragment extends Fragment implements View.OnClickListen
             timePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             timePickerDialog.show();
         }
-        else if(view == binding.etPartisipanPertemuan){
+        else if(view == binding.spinnerPartisipanPertemuan){
 
         }
         else if(view.getId() == binding.btnSimpan.getId()){
@@ -129,7 +140,7 @@ public class AddPertemuanFragment extends Fragment implements View.OnClickListen
             judul = binding.etJudulPertemuan.getText().toString();
             tanggalPertemuan = binding.btnTanggalPertemuan.getText().toString();
             waktuPertemuan = binding.etWaktuPertemuan.getText().toString();
-            partisipan = binding.etPartisipanPertemuan.getText().toString();
+            partisipan = binding.spinnerPartisipanPertemuan.getSelectedItem().toString();
             deskripsi = binding.etDeskripsiPertemuan.getText().toString();
             if(judul.trim().equals("")){
                 binding.etJudulPertemuan.setError("Judul Tidak Boleh Kosong");

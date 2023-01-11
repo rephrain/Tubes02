@@ -1,12 +1,10 @@
 package com.example.tubes2;
 
 import android.content.Context;
-import android.os.Bundle;
 
 import com.example.tubes2.model.Pengumuman;
 import com.example.tubes2.model.Pertemuan;
 import com.example.tubes2.model.User;
-import com.example.tubes2.task.GetAcademicYears;
 
 import org.json.JSONException;
 
@@ -20,17 +18,30 @@ public class MainPresenter {
     private User user;
     private Pengumuman pengumuman;
     private ArrayList<String> academicYears;
+    private ArrayList<User> userForPartisipan;
     private String page;
 
     public MainPresenter(IMainActivity iMainActivity, Context context){
         this.iMainActivity = iMainActivity;
         this.pertemuans = new ArrayList<>();
         this.context = context;
+        this.academicYears = new ArrayList<>();
     }
 
     public void addToListPertemuan(String id, String judul, String tanggalPertemuan,String waktuPertemuan,String deskripsi){
         pertemuans.add(new Pertemuan(id, judul, tanggalPertemuan, waktuPertemuan, deskripsi));
         this.iMainActivity.updateListPertemuan(pertemuans);
+    }
+
+    public void addToListUserForPartisipan(String email, String role, String id){
+        User addUser = new User(email, "", role);
+        addUser.setId(id);
+        userForPartisipan.add(addUser);
+    }
+
+    public void addToListAcademicYears(String year){
+        this.academicYears.add(year);
+        this.iMainActivity.updateListSemester(academicYears);
     }
 
     public void delItemListPertemuan(Pertemuan pertemuan){
@@ -45,7 +56,7 @@ public class MainPresenter {
     public void loginAuthenticated(User user) throws JSONException {
         this.user = user;
         this.iMainActivity.changePage("home");
-        this.getAcademicYears();
+//        this.getAcademicYears();
         this.iMainActivity.runGetUserInfoTask();
 
 //        if (this.user.getRole().equals("admin")){
@@ -101,5 +112,9 @@ public class MainPresenter {
 
     public void getUsersForPartisipan() throws JSONException {
         this.iMainActivity.getUsersForPartisipan();
+    }
+
+    public ArrayList<User> getUsers(){
+        return this.userForPartisipan;
     }
 }

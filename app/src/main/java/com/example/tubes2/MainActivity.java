@@ -433,6 +433,11 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
         task.execute();
     }
 
+    @Override
+    public void updateListSemester(ArrayList<String> academicYears) {
+        this.fragmentFrs.updateListSemester(academicYears);
+    }
+
 //    @Override
 //    public void hideAddAppointmentForAdmin() {
 //        this.fragmentP.hideAddAppointment();

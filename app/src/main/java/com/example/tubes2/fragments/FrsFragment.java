@@ -12,6 +12,11 @@ import com.example.tubes2.adapter.FrsAdapter;
 import com.example.tubes2.adapter.PertemuanAdapter;
 import com.example.tubes2.databinding.FragmentFrsBinding;
 import com.example.tubes2.databinding.FragmentPertemuanBinding;
+import com.example.tubes2.model.Pertemuan;
+
+import org.json.JSONException;
+
+import java.util.ArrayList;
 
 public class FrsFragment extends Fragment implements View.OnClickListener{
     private FragmentFrsBinding binding;
@@ -32,6 +37,11 @@ public class FrsFragment extends Fragment implements View.OnClickListener{
         this.adapter = new FrsAdapter(this, inflater, this.presenter);
         this.binding.lvListPrasyarat.setAdapter(adapter);
         View view = binding.getRoot();
+        try {
+            presenter.getAcademicYears();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         binding.titleListPrasyarat.setOnClickListener(this::onClick); //sementara ke title dulu karna belum connect API
         binding.menuAnnouncement.setOnClickListener(this::onClick);
         binding.menuAppointment.setOnClickListener(this::onClick);
@@ -59,5 +69,10 @@ public class FrsFragment extends Fragment implements View.OnClickListener{
             result.putString("page", "frs");
             this.getParentFragmentManager().setFragmentResult("changePage", result);
         }
+    }
+
+    public void updateListSemester(ArrayList<String> listSemester) {
+        adapter.setListSemester(listSemester);
+        adapter.notifyDataSetChanged();
     }
 }

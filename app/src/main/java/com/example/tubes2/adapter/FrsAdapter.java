@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FrsAdapter extends BaseAdapter {
-    private List<String> semesterTahun;
+    private ArrayList<String> semesterTahun;
     private LayoutInflater inflater;
     private ItemListFrsBinding binding;
     private FrsFragment fragment;
@@ -29,9 +29,12 @@ public class FrsAdapter extends BaseAdapter {
         this.presenter = presenter;
     }
 
-    public void add(List<String> semesterTahun){
-        this.semesterTahun = semesterTahun;
+    public void add(String semesterTahun){
+        this.semesterTahun.add(semesterTahun);
         notifyDataSetChanged();
+    }
+    public void setListSemester(ArrayList<String> listSemester){
+        this.semesterTahun = listSemester;
     }
     @Override
     public int getCount() {
