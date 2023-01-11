@@ -20,4 +20,5 @@ public interface IMainActivity {
 //    void hideAddAppointmentForAdmin();
     void getAppointments() throws JSONException;
     void updateListPengumuman(ArrayList<Pengumuman> pengumumans);
+    void getUsersForPartisipan() throws JSONException;
 }

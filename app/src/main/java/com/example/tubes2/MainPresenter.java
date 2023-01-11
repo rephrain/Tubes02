@@ -17,7 +17,7 @@ public class MainPresenter {
     protected IMainActivity iMainActivity;
     protected Context context;
     private User user;
-    private Pengumuman pengumuman;
+//    private Pengumuman pengumuman;
     private String page;
 
     public MainPresenter(IMainActivity iMainActivity, Context context){
@@ -88,5 +88,9 @@ public class MainPresenter {
 
     public ArrayList<Pengumuman> getPengumuman(){
         return this.pengumumans;
+    }
+
+    public void getUsersForPartisipan() throws JSONException {
+        this.iMainActivity.getUsersForPartisipan();
     }
 }

@@ -23,6 +23,8 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.tubes2.MainPresenter;
 import com.example.tubes2.databinding.PertemuanAddBinding;
 
+import org.json.JSONException;
+
 import java.util.Calendar;
 
 public class AddPertemuanFragment extends Fragment implements View.OnClickListener{
@@ -62,6 +64,13 @@ public class AddPertemuanFragment extends Fragment implements View.OnClickListen
         binding.etWaktuAkhir.setOnClickListener(this::onClick);
         binding.etPartisipanPertemuan.setOnClickListener(this::onClick);
         binding.btnBack.setOnClickListener(this::onClick);
+
+        try {
+            this.presenter.getUsersForPartisipan();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
         return view;
     }
     @Override
