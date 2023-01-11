@@ -143,4 +143,9 @@ public class HomeFragment extends Fragment {
         binding.role.setText(role);
         binding.studentName.setText(name);
     }
+
+    public void homeAnnouncement(String title, String content) {
+        binding.judulPengumumanHome.setText(title);
+        binding.isiPengumumanHome.setText(content);
+    }
 }

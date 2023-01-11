@@ -64,14 +64,19 @@ public class AnnouncementFragment extends Fragment implements View.OnClickListen
         this.binding = FragmentPengumumanBinding.inflate(inflater);
         this.adapter = new PengumumanAdapter(this,inflater,this.presenter);
         this.binding.lvListPrasyarat.setAdapter(adapter);
+        try {
+            this.presenter.getAnnouncements();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         this.getParentFragmentManager().setFragmentResultListener("addToListPengumuman", this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-                String judul = result.getString("judul");
-                String[] tags= result.getStringArray("tags");
-                String content = result.getString("content");
-                Pengumuman pengumuman = new Pengumuman(judul,content,tags);
-                adapter.add(pengumuman);
+//                String judul = result.getString("judul");
+//                String[] tags= result.getStringArray("tags");
+//                String content = result.getString("content");
+//                Pengumuman pengumuman = new Pengumuman(judul,content,tags);
+//                adapter.add(pengumuman);
 //                presenter.addToListPertemuan(id, judul, tanggalPertemuan, waktuPertemuan, partisipan, deskripsi);
 //                db.insertPertemuan(judul, tanggalPertemuan, waktuPertemuan, partisipan, deskripsi);
             }
@@ -84,6 +89,7 @@ public class AnnouncementFragment extends Fragment implements View.OnClickListen
         binding.menuHome.setOnClickListener(this::onClick);
         binding.btnAdd.setOnClickListener(this::onClick);
         binding.menuFrs.setOnClickListener(this::onClick);
+
         return view;
     }
 

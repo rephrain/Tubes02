@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PengumumanAdapter extends BaseAdapter {
-    private ArrayList<Pengumuman> listPengumuman;
+    private List<Pengumuman> listPengumuman;
     private LayoutInflater inflater;
     private ItemListPengumumanBinding binding;
     private AnnouncementFragment fragment;
@@ -25,7 +25,6 @@ public class PengumumanAdapter extends BaseAdapter {
 
     public PengumumanAdapter(AnnouncementFragment fragment, LayoutInflater inflater, MainPresenter presenter){
         this.fragment=fragment;
-        this.listPengumuman=new ArrayList<>();
         this.inflater = inflater;
         this.presenter = presenter;
     }
@@ -34,7 +33,7 @@ public class PengumumanAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public void setListPengumuman(ArrayList<Pengumuman> listPengumuman){
+    public void setListPengumuman(List<Pengumuman> listPengumuman){
         this.listPengumuman = listPengumuman;
     }
     @Override

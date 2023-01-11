@@ -7,6 +7,7 @@ import com.example.tubes2.model.Pengumuman;
 import com.example.tubes2.model.Pertemuan;
 import com.example.tubes2.model.User;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class MainPresenter {
     public MainPresenter(IMainActivity iMainActivity, Context context){
         this.iMainActivity = iMainActivity;
         this.pertemuans = new ArrayList<>();
+        this.pengumumans = new ArrayList<>();
         this.context = context;
     }
 
@@ -76,6 +78,10 @@ public class MainPresenter {
         this.iMainActivity.getAppointments();
     }
 
+    public void getAnnouncements() throws JSONException {
+        this.iMainActivity.getAnnouncements();
+    }
+
     public void callAnnouncementTask(String judul, String[] tags, String content) throws JSONException{
         this.iMainActivity.AddAnnouncement(judul,tags,content);
     }
@@ -83,10 +89,27 @@ public class MainPresenter {
     public void addedAnnouncement(ArrayList<Pengumuman> pengumumans) {
         this.pengumumans = pengumumans;
         this.iMainActivity.changePage("pengumuman");
+//        this.iMainActivity.updateListPengumuman(pengumumans);
+    }
+
+    public Pengumuman getPengumuman(){
+        return this.pengumuman;
+    }
+
+    public void setContent(String content) {
+        this.pengumuman.setContent(content);
+    }
+
+    public void addToListPengumuman(String title, String content, JSONArray tags) {
+        String[] list = new String[tags.length()];
+        for(int i = 0; i < tags.length(); i++) {
+            list[i] = tags.optString(i);
+        }
+        pengumumans.add(new Pengumuman(title, content, list));
         this.iMainActivity.updateListPengumuman(pengumumans);
     }
 
-    public ArrayList<Pengumuman> getPengumuman(){
-        return this.pengumumans;
+    public void homeAnnouncement(String title, String content) {
+        this.iMainActivity.homeAnnouncement(title,content);
     }
 }

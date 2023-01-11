@@ -100,4 +100,6 @@ public class AddPengumumanFragment  extends Fragment implements View.OnClickList
         InputMethodManager inputMethodManager = (InputMethodManager)getActivity().getSystemService(INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(v.getApplicationWindowToken(),0);
     }
+
+
 }

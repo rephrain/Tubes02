@@ -18,6 +18,9 @@ public class User {
     public String getPassword(){return this.password;}
     public String getRole(){return this.role;}
     public String getName(){return this.name;}
+    public String getId() {
+        return id;
+    }
     public void setToken(String token){this.token = token;}
     public void setName(String name){this.name = name;}
     public void setId(String id){this.id = id;}

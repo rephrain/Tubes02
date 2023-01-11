@@ -26,6 +26,7 @@ import com.example.tubes2.fragments.TambahFrsFragment;
 import com.example.tubes2.model.Pengumuman;
 import com.example.tubes2.model.Pertemuan;
 import com.example.tubes2.task.GetAcademicYears;
+import com.example.tubes2.task.GetAnnouncementTask;
 import com.example.tubes2.task.PostAnnouncementTask;
 import com.example.tubes2.task.GetAppointmentsTask;
 import com.example.tubes2.task.GetUserInformationTask;
@@ -424,6 +425,17 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
     @Override
     public void updateListPengumuman(ArrayList<Pengumuman> pengumumans) {
         this.fragmentAnnouncement.updateListPengumuman(pengumumans);
+    }
+
+    @Override
+    public void getAnnouncements() throws JSONException {
+        GetAnnouncementTask taskP = new GetAnnouncementTask(this.presenter,this);
+        taskP.execute();
+    }
+
+    @Override
+    public void homeAnnouncement(String title, String content) {
+        this.fragmentH.homeAnnouncement(title,content);
     }
 
 //    @Override

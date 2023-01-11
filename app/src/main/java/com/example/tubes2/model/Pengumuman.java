@@ -38,7 +38,7 @@ public class Pengumuman {
     }
 
     public void setContent(String content) {
-        this.id = content;
+        this.content = content;
     }
 
     public void setUpdatedAt(String updatedAt) {
