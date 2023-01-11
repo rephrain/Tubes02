@@ -2,6 +2,12 @@
     <string name="app_name">Tubes2</string>
     <string name="title">Hello</string>
     <string name="name">Rephrain Archaimeric</string>
+    <string name="fakultas">Fakultas</string>
+    <string name="namafakultas">Teknik Informasi dan Sains</string>
+    <string name="npm">NPM</string>
+    <string name="tambah">+</string>
+    <string name="programstudi">Program Studi</string>
+    <string name="namaprogram">Informatika</string>
     <string name="announcement">\<u>Selengkapnya</u></string>
     <string name="appointment">Appointment</string>
     <string name="frs">FRS</string>
@@ -46,6 +52,26 @@
     <string name="student">Student</string>
     <string name="role">Role : </string>
     <string name="role_hint">E.g. admin</string>
+    <string name="hint_judul_pertemuan">Masukan Judul Pertemuan</string>
+    <string name="hint_partisipan_pert">Partisipan Pertemuan</string>
+    <string name="btn_jadwal_dsn_text">Lihat Jadwal Dosen</string>
+    <string name="hint_tanggal_pert">Tanggal Pertemuan</string>
+    <string name="hint_waktu_pert">Waktu Pertemuan</string>
+    <string name="hint_waktu_akhir">Waktu Akhir</string>
+    <string name="desk_pert">Masukkan Deskripsi Pertemuan</string>
+
+    <string name="hint_judul_pengumuman">Masukan Judul Pengumuman</string>
+    <string name="hint_tag">Masukan Tag Pengumuman</string>
+    <string name="hint_isi_pengumuman">Masukan Isi Pengumuman</string>
+    <string name="hint_pilih_matkul">Pilih Mata Kuliah</string>
+    <string name="submit_text">Submit</string>
+    <string name="tanggal_list_pert">Tanggal : </string>
+    <string name="matkul_text">Mata Kuliah : </string>
+    <string name="semester_text">Semester : </string>
+    <string name="pagefrs">FRS Mata Kuliah</string>
+    <string name="pagesmst">Semester Tahun</string>
+    <string name="pagepengumuman">Pengumuman</string>
+    <string name="watermark">BY KELOMPOK 2A :)</string>
 
     <string name="prasyarat">Prasyarat : </string>
     <string name="title_add_matkul">Tambah FRS</string>

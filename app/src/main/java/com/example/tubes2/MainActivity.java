@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
-import com.example.tubes2.adapter.SemesterAdapter;
 import com.example.tubes2.databinding.ActivityMainBinding;
 import com.example.tubes2.fragments.AddPengumumanFragment;
 import com.example.tubes2.fragments.AddPertemuanFragment;
@@ -397,6 +396,12 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
     public void notifyLoginFailed() {
         Toast.makeText(this,
                 "Masukkan salah!", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void notifyLoginFailed1() {
+        Toast.makeText(this,
+                "Tidak ada koneksi!", Toast.LENGTH_LONG).show();
     }
 
     @Override
