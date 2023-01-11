@@ -1,9 +1,11 @@
 package com.example.tubes2;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.example.tubes2.model.Pengumuman;
 import com.example.tubes2.model.Pertemuan;
+import com.example.tubes2.model.Student;
 import com.example.tubes2.model.User;
 
 import org.json.JSONException;
@@ -20,13 +22,22 @@ public class MainPresenter {
     private ArrayList<String> academicYears;
     private ArrayList<User> userForPartisipan;
     private String page;
+    private Student student;
 
     public MainPresenter(IMainActivity iMainActivity, Context context){
         this.iMainActivity = iMainActivity;
         this.pertemuans = new ArrayList<>();
         this.context = context;
         this.academicYears = new ArrayList<>();
+        this.student = new Student();
     }
+
+    public void setStudent(String npm, String initialYear){
+        Student student = new Student(this.getUser().getEmail(), this.getUser().getPassword(), this.getUser().getRole(), npm, initialYear);
+        this.student = student;
+    }
+
+    public Student getStudent(){return this.student;}
 
     public void addToListPertemuan(String id, String judul, String tanggalPertemuan,String waktuPertemuan,String deskripsi){
         pertemuans.add(new Pertemuan(id, judul, tanggalPertemuan, waktuPertemuan, deskripsi));
@@ -55,13 +66,13 @@ public class MainPresenter {
 
     public void loginAuthenticated(User user) throws JSONException {
         this.user = user;
-        this.iMainActivity.changePage("home");
 //        this.getAcademicYears();
         this.iMainActivity.runGetUserInfoTask();
-
+        this.iMainActivity.changePage("home");
 //        if (this.user.getRole().equals("admin")){
 //            this.iMainActivity.hideAddAppointmentForAdmin();
 //        }
+
     }
 
     public void notifyLoginFailed(){

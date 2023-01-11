@@ -50,7 +50,7 @@ public class PertemuanFragment extends Fragment implements View.OnClickListener,
         }
 //        this.getParentFragmentManager().setFragmentResultListener("addToListPertemuan", this, new FragmentResultListener() {
 //            @Override
-//            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+//            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle resulwt) {
 //                String id = result.getString("id");
 //                String judul= result.getString("judul");
 //                String tanggalPertemuan = result.getString("tanggalPertemuan");

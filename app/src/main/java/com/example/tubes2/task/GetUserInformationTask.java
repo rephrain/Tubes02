@@ -54,7 +54,11 @@ public class GetUserInformationTask {
                     e.printStackTrace();
                 }
                 Log.d("result user info", name + " " + id);
-                processResult(id, name);
+                try {
+                    processResult(id, name);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         }, new Response.ErrorListener() {
             @Override
@@ -73,8 +77,50 @@ public class GetUserInformationTask {
         mRequestQueue.add(request);
     }
 
-    public void processResult(String id, String name){
+    public void callVolleyStudent(String id) throws JSONException {
+        String urlStudent = "http://ifportal.labftis.net/api/v1/student/id/";
+        RequestQueue mRequestQueue1 = Volley.newRequestQueue(this.context);
+
+        JSONObject json = new JSONObject();
+        json.put("id", id);
+        Log.d("json id", json.toString());
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, urlStudent + id, new JSONObject(), new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                String npm = null;
+                String initialYear = null;
+                Log.d("npm intiial year response", response.toString());
+                try {
+                    npm = response.getString("npm");
+                    initialYear = response.getString("initial_year");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                presenter.setStudent(npm, initialYear);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("result", "error student");
+            }
+        })
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> header = new HashMap<String, String>();
+                header.put("Authorization", "Bearer " + user.getToken());
+                return header;
+            }
+        };
+        mRequestQueue1.add(request);
+    }
+
+    public void processResult(String id, String name) throws JSONException {
         this.presenter.setUserIdName(id, name);
+        if (this.user.getRole().equals("student")){
+            callVolleyStudent(id);
+        }
         this.presenter.setUserInformationAtHome();
     }
 }
